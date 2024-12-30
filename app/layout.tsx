@@ -4,9 +4,8 @@ import Header from "@/components/layout/Header/Header";
 import { ConfigProvider } from "antd";
 import { THEME } from "@/styles/theme";
 import { lightenDarkenColor } from "@/utils/color";
-import Header from "@/components/layout/Header/Header"
 import React from "react";
-import {MAIN_FONT} from "@/styles/font";
+import { MAIN_FONT } from "@/styles/font";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,14 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${MAIN_FONT.className}`}>
-        <body>
-            <Header/>
-            {children}
-        </body>
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body>
         <ConfigProvider
           theme={{
             token: {
@@ -53,8 +45,8 @@ export default function RootLayout({
             }
           }}
         >
-        <Header />
-        {children}
+          <Header />
+          {children}
         </ConfigProvider>
       </body>
     </html>

@@ -1,5 +1,5 @@
 import HomeGameEntry from "@/components/home/HomeGameEntry";
-import {GameCategory, GamePlatform} from "@/interfaces/game";
+import { GameCategory, GamePlatform } from "@/interfaces/game";
 
 export default function Home() {
     return (
@@ -53,12 +53,12 @@ export default function Home() {
                                 className="h-6 w-6"
                             >
                                 <path
-                                    d="M18.75 12.75h1.5a.75.75 0 000-1.5h-1.5a.75.75 0 000 1.5zM12 6a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5A.75.75 0 0112 6zM12 18a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5A.75.75 0 0112 18zM3.75 6.75h1.5a.75.75 0 100-1.5h-1.5a.75.75 0 000 1.5zM5.25 18.75h-1.5a.75.75 0 010-1.5h1.5a.75.75 0 010 1.5zM3 12a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5A.75.75 0 013 12zM9 3.75a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5zM12.75 12a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0zM9 15.75a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5z"/>
+                                    d="M18.75 12.75h1.5a.75.75 0 000-1.5h-1.5a.75.75 0 000 1.5zM12 6a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5A.75.75 0 0112 6zM12 18a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5A.75.75 0 0112 18zM3.75 6.75h1.5a.75.75 0 100-1.5h-1.5a.75.75 0 000 1.5zM5.25 18.75h-1.5a.75.75 0 010-1.5h1.5a.75.75 0 010 1.5zM3 12a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5A.75.75 0 013 12zM9 3.75a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5zM12.75 12a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0zM9 15.75a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5z" />
                             </svg>
                             Filters
                         </button>
                     </div>
-                    <div className="md:py-4"/>
+                    <div className="md:py-4" />
                     <div className="block md:hidden">
                         <h3 className="text-center mb-4 text-3xl">Filters</h3>
                         <button
@@ -199,7 +199,7 @@ export default function Home() {
                                     role="button"
                                     className="flex justify-between gap-2 px-2 py-2 rounded-md cursor-pointer text-muted hover:text-white transition-all items-center"
                                 >
-                                    <img src="/images/icons/home/ronin.svg" width={20} alt="Ronin"/>
+                                    <img src="/images/icons/home/ronin.svg" width={20} alt="Ronin" />
                                     <label className="cursor-pointer text-md flex-1 text-left">
                                         Ronin
                                     </label>
@@ -223,7 +223,7 @@ export default function Home() {
                                     role="button"
                                     className="flex justify-between gap-2 px-2 py-2 rounded-md cursor-pointer text-muted hover:text-white transition-all items-center"
                                 >
-                                    <img src="/images/icons/home/base.svg" width={20} alt="Base"/>
+                                    <img src="/images/icons/home/base.svg" width={20} alt="Base" />
                                     <label className="cursor-pointer text-md flex-1 text-left">
                                         Base
                                     </label>
@@ -281,7 +281,7 @@ export default function Home() {
                                     role="button"
                                     className="flex justify-between gap-2 px-2 py-2 rounded-md cursor-pointer text-muted hover:text-white transition-all items-center"
                                 >
-                                    <img src="/images/icons/home/web.svg" width={20} alt="Web"/>
+                                    <img src="/images/icons/home/web.svg" width={20} alt="Web" />
                                     <label className="cursor-pointer text-md flex-1 text-left">
                                         Web
                                     </label>
@@ -319,7 +319,7 @@ export default function Home() {
                                     role="button"
                                     className="flex justify-between gap-2 px-2 py-2 rounded-md cursor-pointer text-muted hover:text-white transition-all items-center"
                                 >
-                                    <img src="/images/icons/home/iphone.svg" width={20} alt="iPhone"/>
+                                    <img src="/images/icons/home/iphone.svg" width={20} alt="iPhone" />
                                     <label className="cursor-pointer text-md flex-1 text-left">
                                         iPhone
                                     </label>
@@ -372,7 +372,7 @@ export default function Home() {
                                             />
                                         </div>
                                         <div className="text-gray-300 text-base ml-4">
-                                            <div className="text-gray-300"/>
+                                            <div className="text-gray-300" />
                                         </div>
                                     </label>
                                     <label className="cursor-pointer text-md flex-1 text-left">
@@ -393,7 +393,7 @@ export default function Home() {
                                             />
                                         </div>
                                         <div className="text-gray-300 text-base ml-4">
-                                            <div className="text-gray-300"/>
+                                            <div className="text-gray-300" />
                                         </div>
                                     </label>
                                     <label className="cursor-pointer text-md flex-1 text-left">
@@ -414,7 +414,7 @@ export default function Home() {
                                             />
                                         </div>
                                         <div className="text-gray-300 text-base ml-4">
-                                            <div className="text-gray-300"/>
+                                            <div className="text-gray-300" />
                                         </div>
                                     </label>
                                     <label className="cursor-pointer text-md flex-1 text-left">
@@ -435,7 +435,7 @@ export default function Home() {
                                             />
                                         </div>
                                         <div className="text-gray-300 text-base ml-4">
-                                            <div className="text-gray-300"/>
+                                            <div className="text-gray-300" />
                                         </div>
                                     </label>
                                     <label className="cursor-pointer text-md flex-1 text-left">
@@ -456,7 +456,7 @@ export default function Home() {
                                             />
                                         </div>
                                         <div className="text-gray-300 text-base ml-4">
-                                            <div className="text-gray-300"/>
+                                            <div className="text-gray-300" />
                                         </div>
                                     </label>
                                     <label className="cursor-pointer text-md flex-1 text-left">
@@ -477,7 +477,7 @@ export default function Home() {
                                             />
                                         </div>
                                         <div className="text-gray-300 text-base ml-4">
-                                            <div className="text-gray-300"/>
+                                            <div className="text-gray-300" />
                                         </div>
                                     </label>
                                     <label className="cursor-pointer text-md flex-1 text-left">
@@ -498,7 +498,7 @@ export default function Home() {
                                             />
                                         </div>
                                         <div className="text-gray-300 text-base ml-4">
-                                            <div className="text-gray-300"/>
+                                            <div className="text-gray-300" />
                                         </div>
                                     </label>
                                     <label className="cursor-pointer text-md flex-1 text-left">
@@ -519,7 +519,7 @@ export default function Home() {
                                             />
                                         </div>
                                         <div className="text-gray-300 text-base ml-4">
-                                            <div className="text-gray-300"/>
+                                            <div className="text-gray-300" />
                                         </div>
                                     </label>
                                     <label className="cursor-pointer text-md flex-1 text-left">
@@ -574,7 +574,7 @@ export default function Home() {
                                             />
                                         </div>
                                         <div className="text-gray-300 text-base ml-4">
-                                            <div className="text-gray-300"/>
+                                            <div className="text-gray-300" />
                                         </div>
                                     </label>
                                     <label className="cursor-pointer text-md flex-1 text-left">
@@ -595,7 +595,7 @@ export default function Home() {
                                             />
                                         </div>
                                         <div className="text-gray-300 text-base ml-4">
-                                            <div className="text-gray-300"/>
+                                            <div className="text-gray-300" />
                                         </div>
                                     </label>
                                     <label className="cursor-pointer text-md flex-1 text-left">
@@ -616,7 +616,7 @@ export default function Home() {
                                             />
                                         </div>
                                         <div className="text-gray-300 text-base ml-4">
-                                            <div className="text-gray-300"/>
+                                            <div className="text-gray-300" />
                                         </div>
                                     </label>
                                     <label className="cursor-pointer text-md flex-1 text-left">
@@ -637,7 +637,7 @@ export default function Home() {
                                             />
                                         </div>
                                         <div className="text-gray-300 text-base ml-4">
-                                            <div className="text-gray-300"/>
+                                            <div className="text-gray-300" />
                                         </div>
                                     </label>
                                     <label className="cursor-pointer text-md flex-1 text-left">
@@ -658,7 +658,7 @@ export default function Home() {
                                             />
                                         </div>
                                         <div className="text-gray-300 text-base ml-4">
-                                            <div className="text-gray-300"/>
+                                            <div className="text-gray-300" />
                                         </div>
                                     </label>
                                     <label className="cursor-pointer text-md flex-1 text-left">
@@ -679,7 +679,7 @@ export default function Home() {
                                             />
                                         </div>
                                         <div className="text-gray-300 text-base ml-4">
-                                            <div className="text-gray-300"/>
+                                            <div className="text-gray-300" />
                                         </div>
                                     </label>
                                     <label className="cursor-pointer text-md flex-1 text-left">
@@ -700,7 +700,7 @@ export default function Home() {
                                             />
                                         </div>
                                         <div className="text-gray-300 text-base ml-4">
-                                            <div className="text-gray-300"/>
+                                            <div className="text-gray-300" />
                                         </div>
                                     </label>
                                     <label className="cursor-pointer text-md flex-1 text-left">
@@ -721,7 +721,7 @@ export default function Home() {
                                             />
                                         </div>
                                         <div className="text-gray-300 text-base ml-4">
-                                            <div className="text-gray-300"/>
+                                            <div className="text-gray-300" />
                                         </div>
                                     </label>
                                     <label className="cursor-pointer text-md flex-1 text-left">
@@ -742,7 +742,7 @@ export default function Home() {
                                             />
                                         </div>
                                         <div className="text-gray-300 text-base ml-4">
-                                            <div className="text-gray-300"/>
+                                            <div className="text-gray-300" />
                                         </div>
                                     </label>
                                     <label className="cursor-pointer text-md flex-1 text-left">
@@ -763,7 +763,7 @@ export default function Home() {
                                             />
                                         </div>
                                         <div className="text-gray-300 text-base ml-4">
-                                            <div className="text-gray-300"/>
+                                            <div className="text-gray-300" />
                                         </div>
                                     </label>
                                     <label className="cursor-pointer text-md flex-1 text-left">
@@ -825,10 +825,10 @@ export default function Home() {
                             />
 
                             <HomeGameEntry name={"Axie Infinity"} plug={"axie-infinity"}
-                                           img={"https://image-cdn.lootrush.com/unsafe/800x0/smart/filters:format(webp)/https%3A%2F%2Flootrush-website-assets.s3.us-east-1.amazonaws.com%2Fimages%2Fgames%2Faxie-infinity-accessories%2FCard.png"}
-                                           visits={1e6} items={10000} offers={5}
-                                           categories={[GameCategory.Breeding, GameCategory.Card]}
-                                           platforms={[GamePlatform.Android, GamePlatform.iOS]}/>
+                                img={"https://image-cdn.lootrush.com/unsafe/800x0/smart/filters:format(webp)/https%3A%2F%2Flootrush-website-assets.s3.us-east-1.amazonaws.com%2Fimages%2Fgames%2Faxie-infinity-accessories%2FCard.png"}
+                                visits={1e6} items={10000} offers={5}
+                                categories={[GameCategory.Breeding, GameCategory.Card]}
+                                platforms={[GamePlatform.Android, GamePlatform.iOS]} />
                             <HomeGameEntry
                                 name={"Pixels"}
                                 plug={"pixels"}
