@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Header from "@/components/layout/Header/Header";
+import { ConfigProvider } from "antd";
+import { THEME } from "@/styles/theme";
+import { lightenDarkenColor } from "@/utils/color";
 import Header from "@/components/layout/Header/Header"
 import React from "react";
 import {MAIN_FONT} from "@/styles/font";
@@ -20,6 +24,39 @@ export default function RootLayout({
             <Header/>
             {children}
         </body>
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <ConfigProvider
+          theme={{
+            token: {
+              colorText: THEME.TEXT_COLOR,
+              colorPrimary: THEME.PRIMARY_COLOR,
+            },
+            components: {
+              Input: {
+                activeBg: THEME.LIGHT_SECONDARY_COLOR,
+                hoverBg: THEME.LIGHT_SECONDARY_COLOR,
+                colorBgContainer: THEME.LIGHT_SECONDARY_COLOR,
+                hoverBorderColor: THEME.ROYAL_GRAY_COLOR,
+                activeBorderColor: THEME.ROYAL_GRAY_COLOR,
+              },
+              Menu: {
+                itemBg: 'transparent',
+              },
+              Button: {
+                defaultBg: THEME.LIGHT_SECONDARY_COLOR,
+                defaultHoverBg: 'white',
+                lineWidth: 0
+              }
+            }
+          }}
+        >
+        <Header />
+        {children}
+        </ConfigProvider>
+      </body>
     </html>
   );
 }
