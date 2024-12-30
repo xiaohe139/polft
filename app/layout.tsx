@@ -3,7 +3,6 @@ import "./globals.css";
 import Header from "@/components/layout/Header/Header";
 import { ConfigProvider } from "antd";
 import { THEME } from "@/styles/theme";
-import { lightenDarkenColor } from "@/utils/color";
 import React from "react";
 import { MAIN_FONT } from "@/styles/font";
 
@@ -25,21 +24,23 @@ export default function RootLayout({
             token: {
               colorText: THEME.TEXT_COLOR,
               colorPrimary: THEME.PRIMARY_COLOR,
+              fontFamily: MAIN_FONT.style.fontFamily
             },
             components: {
               Input: {
                 activeBg: THEME.LIGHT_SECONDARY_COLOR,
                 hoverBg: THEME.LIGHT_SECONDARY_COLOR,
                 colorBgContainer: THEME.LIGHT_SECONDARY_COLOR,
-                hoverBorderColor: THEME.ROYAL_GRAY_COLOR,
-                activeBorderColor: THEME.ROYAL_GRAY_COLOR,
+                hoverBorderColor: THEME.HOVER_LIGHT_SECONDARY_COLOR,
+                activeBorderColor: THEME.HOVER_LIGHT_SECONDARY_COLOR,
               },
               Menu: {
                 itemBg: 'transparent',
               },
               Button: {
                 defaultBg: THEME.LIGHT_SECONDARY_COLOR,
-                defaultHoverBg: 'white',
+                defaultHoverBg: THEME.HOVER_LIGHT_SECONDARY_COLOR,
+                defaultActiveBg: THEME.HOVER_LIGHT_SECONDARY_COLOR,
                 lineWidth: 0
               }
             }

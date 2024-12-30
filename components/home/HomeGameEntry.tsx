@@ -57,7 +57,7 @@ export default function HomeGameEntry({
                     {
                         categories.map((category) => (
                             <span key={category}
-                                className="text-xs bg-gray-600 text-white rounded-md px-2 py-1 mr-2 whitespace-nowrap">
+                                className="text-xs bg-gray-600 text-text-primary rounded-md px-2 py-1 mr-2 whitespace-nowrap font-bold">
                                 {category}
                             </span>
                         ))

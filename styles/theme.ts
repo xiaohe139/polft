@@ -1,11 +1,10 @@
-// 'use client';
+import { lightenDarkenColor } from "../utils/color";
 
-// import { inter } from "../utils/fonts";
-
-export const THEME = {
-    PRIMARY_COLOR: 'rgb(115,49,255)',
+const THEME = {
+    PRIMARY_COLOR: '#7331FF',
     SECONDARY_COLOR: 'rgb(21,21,31)',
-    LIGHT_SECONDARY_COLOR: 'rgb(34,34,48)',
+    LIGHT_SECONDARY_COLOR: '#2D2D3F',
+    HOVER_LIGHT_SECONDARY_COLOR: '',
     LIGHT_PRIMARY_COLOR: '#c6e0f6',
     ROYAL_GRAY_COLOR: '#6F767E',
     DANGER_COLOR: '#FF4D4F',
@@ -15,4 +14,8 @@ export const THEME = {
     // LAYOUT_ELEMENT_SPACE: '0px',
     // LAYOUT_ELEMENT_BORDER_RADIUS: '0px',
     // BODY_PADDING: '0px'
-}
+};
+
+THEME.HOVER_LIGHT_SECONDARY_COLOR = lightenDarkenColor(THEME.LIGHT_SECONDARY_COLOR, 20);
+
+export { THEME };

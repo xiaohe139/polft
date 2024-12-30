@@ -9,7 +9,7 @@ export default function Notifications() {
             arrow={false}
             placement="bottom"
         >
-            <Button className="w-9 h-9">
+            <Button className="w-9 h-full">
                 <div><NotificationIcon /></div>
             </Button>
         </Popover>

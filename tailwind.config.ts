@@ -29,6 +29,7 @@ const config: Config = {
         'light-secondary': THEME.LIGHT_SECONDARY_COLOR,
         "royal-gray": THEME.ROYAL_GRAY_COLOR,
         'danger': THEME.DANGER_COLOR,
+        'text-primary': THEME.TEXT_COLOR,
         'text-hover': THEME.TEXT_HOVER_COLOR,
         'inherit': 'inherit'
       },
