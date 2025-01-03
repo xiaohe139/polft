@@ -1,11 +1,12 @@
+'use client';
 import HomeGameEntry from "@/components/home/HomeGameEntry";
 import { GameCategory, GamePlatform } from "@/interfaces/game";
 
 export default function Home() {
     return (
-        <div>
+        <>
             <section
-                className="bg-gray-800 flex flex-col md:flex-row md:gap-6 px-5 md:px-10 pt-6 max-w-[1920px] mx-auto">
+                className="flex flex-col md:flex-row md:gap-6 px-5 md:px-10 pt-6 max-w-[1920px] mx-auto">
                 <div
                     className="bg-gray-800/80 backdrop-blur-lg flex flex-col w-full pb-2 md:w-[16rem] z-40 sticky top-[142px] md:top-[150px] md:overflow-auto scrollbar-hide md:h-[calc(100vh-180px)]">
                     <div className="flex mb-2 sm:mb-6 w-full items-center order-first">
@@ -824,11 +825,14 @@ export default function Home() {
                                 platforms={[GamePlatform.Android, GamePlatform.Desktop]}
                             />
 
-                            <HomeGameEntry name={"Axie Infinity"} plug={"axie-infinity"}
+                            <HomeGameEntry
+                                name={"Axie Infinity"}
+                                plug={"axie-infinity"}
                                 img={"https://image-cdn.lootrush.com/unsafe/800x0/smart/filters:format(webp)/https%3A%2F%2Flootrush-website-assets.s3.us-east-1.amazonaws.com%2Fimages%2Fgames%2Faxie-infinity-accessories%2FCard.png"}
                                 visits={1e6} items={10000} offers={5}
                                 categories={[GameCategory.Breeding, GameCategory.Card]}
-                                platforms={[GamePlatform.Android, GamePlatform.iOS]} />
+                                platforms={[GamePlatform.Android, GamePlatform.iOS]}
+                            />
                             <HomeGameEntry
                                 name={"Pixels"}
                                 plug={"pixels"}
@@ -1043,6 +1047,6 @@ export default function Home() {
                 </div>
             </section>
 
-        </div>
+        </>
     );
 }

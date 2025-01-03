@@ -5,6 +5,7 @@ import { ConfigProvider } from "antd";
 import { THEME } from "@/styles/theme";
 import React from "react";
 import { MAIN_FONT } from "@/styles/font";
+import SWRProvider from "@/components/provider/SWRProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,8 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${MAIN_FONT.className}`}>
-      <body>
+    <html lang="en" className={`${MAIN_FONT.className}`} suppressHydrationWarning>
+      <body className="bg-secondary">
         <ConfigProvider
           theme={{
             token: {
@@ -46,8 +47,10 @@ export default function RootLayout({
             }
           }}
         >
-          <Header />
-          {children}
+          <SWRProvider>
+            <Header />
+            {children}
+          </SWRProvider>
         </ConfigProvider>
       </body>
     </html>

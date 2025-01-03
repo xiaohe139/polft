@@ -21,3 +21,14 @@ export enum GamePlatform {
     iOS,
     iPhone,
 }
+
+export interface GameInfo {
+    name: string,
+    plug: string,
+    img: string,
+    visits: number,
+    items: number,
+    offers: number,
+    categories: GameCategory[],
+    platforms: GamePlatform[],
+}

@@ -1,17 +1,9 @@
 import { compactNumber } from "@/utils/converter";
-import { GameCategory, GamePlatform } from "@/interfaces/game";
+import { GameCategory, GameInfo, GamePlatform } from "@/interfaces/game";
 import { gamePlatformUrl } from "@/utils/assets";
+import GameCategoryTag from "../common/GameCategoryTag";
 
-interface HomeGameEntryProps {
-    name: string, // Axie Infinity
-    plug: string, // axie-infinity
-    img: string, // "https://img-cdn.lootrush.com/unsafe/800x0/smart/filters:format(webp)/https%3A%2F%2Flootrush-website-assets.s3.us-east-1.amazonaws.com%2Fimgs%2Fgames%2Faxie-infinity-accessories%2FCard.png"
-    visits: number,
-    items: number,
-    offers: number,
-    categories: GameCategory[],
-    platforms: GamePlatform[],
-}
+type HomeGameEntryProps = Pick<GameInfo, "name" | "img" | "plug" | "visits" | "items" | "offers" | "categories" | "platforms">;
 
 export default function HomeGameEntry({
     name,
@@ -56,10 +48,7 @@ export default function HomeGameEntry({
                 <span className="flex gap-1 mt-2 overflow-x-auto scrollbar-hide">
                     {
                         categories.map((category) => (
-                            <span key={category}
-                                className="text-xs bg-gray-600 text-text-primary rounded-md px-2 py-1 mr-2 whitespace-nowrap font-bold">
-                                {category}
-                            </span>
+                            <GameCategoryTag key={category} category={category} />
                         ))
                     }
                     {
