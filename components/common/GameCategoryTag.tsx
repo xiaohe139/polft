@@ -7,7 +7,7 @@ export default function GameCategoryTag({
 }) {
     return (
         <span
-            className="text-xs bg-gray-600 text-text-primary rounded-md px-2 py-1 whitespace-nowrap font-bold">
+            className="text-xs bg-[rgb(45,45,63)] text-text-primary rounded-md px-2 py-1 whitespace-nowrap font-bold">
             {category}
         </span>
     )

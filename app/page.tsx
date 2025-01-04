@@ -11,7 +11,7 @@ export default function Home() {
                     className="bg-gray-800/80 backdrop-blur-lg flex flex-col w-full pb-2 md:w-[16rem] z-40 sticky top-[142px] md:top-[150px] md:overflow-auto scrollbar-hide md:h-[calc(100vh-180px)]">
                     <div className="flex mb-2 sm:mb-6 w-full items-center order-first">
                         <div
-                            className="flex flex-row row-end-1 h-10 items-center cursor-pointer content-end place-content-end justify-center bg-gray-700 p-4hover:bg-gray-600 active:bg-gray-600 w-full rounded-lg">
+                            className="flex flex-row row-end-1 h-10 items-center cursor-pointer content-end place-content-end justify-center bg-[rgb(34,34,48)] p-4hover:bg-[rgb(45,45,63)] active:bg-[rgb(45,45,63)] w-full rounded-lg">
                             <a className="flex text-white">
                                 <img
                                     src="/images/icons/submit-collection.svg"
@@ -23,7 +23,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="flex gap-2 order-first md:order-none pt-2 md:pt-0">
-                        <div className="flex items-center bg-gray-700 px-2 rounded-lg text-muted flex-1">
+                        <div className="flex items-center bg-[rgb(34,34,48)] px-2 rounded-lg text-muted flex-1">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
@@ -45,7 +45,7 @@ export default function Home() {
                             />
                         </div>
                         <button
-                            className="bg-gray-600 flex-1 px-2 flex items-center justify-center py-2 rounded-lg gap-2">
+                            className="bg-[rgb(45,45,63)] flex-1 px-2 flex items-center justify-center py-2 rounded-lg gap-2">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
@@ -63,7 +63,7 @@ export default function Home() {
                     <div className="block md:hidden">
                         <h3 className="text-center mb-4 text-3xl">Filters</h3>
                         <button
-                            className="absolute top-[1rem] right-[1rem] items-center gap-2 bg-gray-700 p-2 rounded-md mb-4">
+                            className="absolute top-[1rem] right-[1rem] items-center gap-2 bg-[rgb(34,34,48)] p-2 rounded-md mb-4">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
@@ -81,7 +81,7 @@ export default function Home() {
                     </div>
                     <div className="flex flex-col gap-4 pb-10">
                         <div
-                            className="bg-gray-600 md:bg-transparent rounded-md p-3 md:p-0"
+                            className="bg-[rgb(45,45,63)] md:bg-transparent rounded-md p-3 md:p-0"
                             data-headlessui-state="open"
                         >
                             <button
@@ -247,7 +247,7 @@ export default function Home() {
                             </div>
                         </div>
                         <div
-                            className="bg-gray-600 md:bg-transparent rounded-md p-3 md:p-0"
+                            className="bg-[rgb(45,45,63)] md:bg-transparent rounded-md p-3 md:p-0"
                             data-headlessui-state="open"
                         >
                             <button
@@ -329,7 +329,7 @@ export default function Home() {
                             </div>
                         </div>
                         <div
-                            className="bg-gray-600 md:bg-transparent rounded-md p-3 md:p-0"
+                            className="bg-[rgb(45,45,63)] md:bg-transparent rounded-md p-3 md:p-0"
                             data-headlessui-state="open"
                         >
                             <button
@@ -531,7 +531,7 @@ export default function Home() {
                             </div>
                         </div>
                         <div
-                            className="bg-gray-600 md:bg-transparent rounded-md p-3 md:p-0"
+                            className="bg-[rgb(45,45,63)] md:bg-transparent rounded-md p-3 md:p-0"
                             data-headlessui-state="open"
                         >
                             <button
@@ -786,7 +786,7 @@ export default function Home() {
                             <div className="flex justify-end">
                                 <div className="relative" data-headlessui-state="">
                                     <button
-                                        className="flex gap-2 items-center transition-all p-2 rounded-md hover:bg-gray-700 text-sm border-2 bg-transparent border-transparent"
+                                        className="flex gap-2 items-center transition-all p-2 rounded-md hover:bg-[rgb(34,34,48)] text-sm border-2 bg-transparent border-transparent"
                                         id="headlessui-listbox-button-:rj:"
                                         type="button"
                                         aria-haspopup="listbox"

@@ -19,7 +19,6 @@ export enum GamePlatform {
     Desktop,
     Android,
     iOS,
-    iPhone,
 }
 
 export interface GameInfo {

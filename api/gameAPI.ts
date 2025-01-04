@@ -1,6 +1,6 @@
 import { GameCategory, GameInfo, GamePlatform } from "@/interfaces/game";
 
-export class gameAPI {
+export class GameAPI {
     static async getGameBySlug(slug: string): Promise<GameInfo> {
         return {
             name: "Axie Infinity",

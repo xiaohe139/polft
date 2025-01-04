@@ -17,7 +17,7 @@ export default function HomeGameEntry({
 }: HomeGameEntryProps) {
     return (
         <a
-            className="flex flex-col gap-2 justify-start bg-gray-700 rounded-2xl overflow-hidden cursor-pointer no-underline text-white hover:text-white hover:no-underline transition-all hover:border-none shadow-none hover:shadow-lg h-[320px] md:h-[390px] 2xl:[400px]"
+            className="flex flex-col gap-2 justify-start bg-[rgb(34,34,48)] rounded-2xl overflow-hidden cursor-pointer no-underline text-white hover:text-white hover:no-underline transition-all hover:border-none shadow-none hover:shadow-lg h-[320px] md:h-[390px] 2xl:[400px]"
             href={`games/${plug}`}
         >
             <div className="h-[150px] md:h-[250px] overflow-hidden relative">

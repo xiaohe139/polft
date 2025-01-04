@@ -23,7 +23,7 @@ const config: Config = {
         'nav-curve': 'url("../public/images/curve-nav.svg")'
       },
       colors: {
-        primary: THEME.SECONDARY_COLOR,
+        primary: THEME.PRIMARY_COLOR,
         "light-primary": THEME.LIGHT_PRIMARY_COLOR,
         secondary: THEME.SECONDARY_COLOR,
         'light-secondary': THEME.LIGHT_SECONDARY_COLOR,
@@ -31,6 +31,7 @@ const config: Config = {
         'danger': THEME.DANGER_COLOR,
         'text-primary': THEME.TEXT_COLOR,
         'text-hover': THEME.TEXT_HOVER_COLOR,
+        'muted': THEME.TEXT_MUTED_COLOR,
         'inherit': 'inherit'
       },
       fontSize: {

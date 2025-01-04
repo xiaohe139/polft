@@ -11,10 +11,6 @@ export default function SearchBar(props: InputProps): React.JSX.Element {
             placeholder='Search'
             allowClear
             prefix={<SearchIcon className='hover:fill-[#1A1D1F]'/>}
-            classNames={{
-                // input: 'bg-[rgb(34,34,48)]'
-            }}
-            // bordered={false}
             {...props}
             className={twMerge('w-1/3 hover:border-2 rounded-xl h-12 border-2 border-transparent caret-secondary', props.className)}
         />

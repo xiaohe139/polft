@@ -1,5 +1,5 @@
 'use client';
-import { gameAPI } from "@/api/gameAPI";
+import { GameAPI } from "@/api/gameAPI";
 import GameCategoryTag from "@/components/common/GameCategoryTag";
 import GamePlatformIcon from "@/components/common/icons/GamePlatform";
 import { GameCategory, GamePlatform } from "@/interfaces/game";
@@ -21,7 +21,7 @@ export default function GamePage({
         data,
         isLoading
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } = useSWR([swrKey, slug], ([_, slug]) => gameAPI.getGameBySlug(slug));
+    } = useSWR([swrKey, slug], ([_, slug]) => GameAPI.getGameBySlug(slug));
 
     console.log(data);
     return (
@@ -57,7 +57,7 @@ export default function GamePage({
                                 </tr>
                             </thead>
                             <tbody className="">
-                                <tr className="border-t border-t-gray-500 relative cursor-pointer hover:bg-gray-700">
+                                <tr className="border-t border-t-gray-500 relative cursor-pointer hover:bg-[rgb(34,34,48)]">
                                     <td className="text-sm animate-fade-in">
                                         <a
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
@@ -134,7 +134,7 @@ export default function GamePage({
                                         </a>
                                     </td>
                                 </tr>
-                                <tr className="border-t border-t-gray-500 relative cursor-pointer hover:bg-gray-700">
+                                <tr className="border-t border-t-gray-500 relative cursor-pointer hover:bg-[rgb(34,34,48)]">
                                     <td className="text-sm animate-fade-in">
                                         <a
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
@@ -211,7 +211,7 @@ export default function GamePage({
                                         </a>
                                     </td>
                                 </tr>
-                                <tr className="border-t border-t-gray-500 relative cursor-pointer hover:bg-gray-700">
+                                <tr className="border-t border-t-gray-500 relative cursor-pointer hover:bg-[rgb(34,34,48)]">
                                     <td className="text-sm animate-fade-in">
                                         <a
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
@@ -288,7 +288,7 @@ export default function GamePage({
                                         </a>
                                     </td>
                                 </tr>
-                                <tr className="border-t border-t-gray-500 relative cursor-pointer hover:bg-gray-700">
+                                <tr className="border-t border-t-gray-500 relative cursor-pointer hover:bg-[rgb(34,34,48)]">
                                     <td className="text-sm animate-fade-in">
                                         <a
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
@@ -365,7 +365,7 @@ export default function GamePage({
                                         </a>
                                     </td>
                                 </tr>
-                                <tr className="border-t border-t-gray-500 relative cursor-pointer hover:bg-gray-700">
+                                <tr className="border-t border-t-gray-500 relative cursor-pointer hover:bg-[rgb(34,34,48)]">
                                     <td className="text-sm animate-fade-in">
                                         <a
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
@@ -442,7 +442,7 @@ export default function GamePage({
                                         </a>
                                     </td>
                                 </tr>
-                                <tr className="border-t border-t-gray-500 relative cursor-pointer hover:bg-gray-700">
+                                <tr className="border-t border-t-gray-500 relative cursor-pointer hover:bg-[rgb(34,34,48)]">
                                     <td className="text-sm animate-fade-in">
                                         <a
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
