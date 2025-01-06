@@ -18,9 +18,9 @@ export default function NFTCard({
     return (
         <>
             <div
-                className="flex flex-col gap-1 md:gap-2 rounded-xl bg-[rgb(34,34,48)] transition-all relative"
+                className="flex flex-col gap-1 md:gap-2 rounded-xl bg-[rgb(34,34,48)] transition-all relative h-full"
             >
-                <div className="relative rounded-md cursor-pointer overflow-hidden transition flex flex-col items-center justify-center h-full w-full">
+                <div className="relative rounded-md overflow-hidden transition flex flex-col items-center justify-center h-full w-full">
                     <Image
                         className="px-0 animate-fade-in"
                         alt={name}

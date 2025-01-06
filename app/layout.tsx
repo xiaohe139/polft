@@ -43,6 +43,10 @@ export default function RootLayout({
                 defaultHoverBg: THEME.HOVER_LIGHT_SECONDARY_COLOR,
                 defaultActiveBg: THEME.HOVER_LIGHT_SECONDARY_COLOR,
                 lineWidth: 0
+              },
+              Modal: {
+                // paddingLG: 0
+                contentBg: 'transparent',
               }
             }
           }}

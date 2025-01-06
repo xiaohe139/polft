@@ -1,6 +1,6 @@
 'use client';
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import PoladotImage from '@/public/images/polkadot.png';
 import AstarImage from '@/public/images/astar.png';
 import { Button } from "antd";
@@ -27,6 +27,9 @@ export default function CollectionsPage({
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } = useSWR([swrKey, slug], ([_, slug]) => CollectionAPI.getCollectionBySlug(slug));
 
+    const [selectedNFTIndex, setselectedNFTIndex] = useState(0);
+
+    const [openBuyNFT, setOpenBuyNFT] = useState(false);
     return (
         <main>
             <Landing></Landing>
@@ -1724,7 +1727,12 @@ export default function CollectionsPage({
                             <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
                                 {
                                     collection?.nfts.map((item, index) => (
-                                        <NFTCard key={index} {...item} />
+                                        <div key={index} onClick={() => {
+                                            setOpenBuyNFT(true);
+                                            setselectedNFTIndex(index);
+                                        }} className="cursor-pointer">
+                                            <NFTCard {...item} />
+                                        </div>
                                     ))
                                 }
                             </div>
@@ -1734,15 +1742,7 @@ export default function CollectionsPage({
                 </div>
             </div>
 
-            {/* <Modal
-
-            width={600}
-            destroyOnClose
-            footer={[]}
-            closeIcon={null}
-            > */}
-                {!isUndefined(collection) && <BuyNFT {...collection?.nfts[0]}/>}
-            {/* </Modal> */}
+            {!isUndefined(collection) && <BuyNFT nftInfo={collection.nfts[selectedNFTIndex]} open={openBuyNFT} onClose={() => setOpenBuyNFT(false)}/>}
         </main>
     )
 }
