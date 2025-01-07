@@ -5,7 +5,8 @@ export class ChainAPI {
         return {
             id: id,
             name: "Astar",
-            img: "https://cryptologos.cc/logos/astar-astr-logo.png"
+            img: "https://cryptologos.cc/logos/astar-astr-logo.png",
+            rpcUrl: ""
         }
     }
 }

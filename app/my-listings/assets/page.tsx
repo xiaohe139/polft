@@ -1,13 +1,8 @@
 'use client';
 import SearchBar from "@/components/common/SearchBar/SearchBar";
-import { Typography } from "antd";
-import Link from "next/link";
-
-const { Text, Title } = Typography;
 
 export default function MyListingsAssetsPage() {
     return (
-
         <div className="">
             <Statistic />
             <nav className="flex max-w-7xl mx-auto flex-col my-8" aria-label="Tabs">

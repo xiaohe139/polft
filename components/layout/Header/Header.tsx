@@ -10,11 +10,7 @@ import { Typography } from "antd";
 import '@rainbow-me/rainbowkit/styles.css';
 import {
   ConnectButton,
-  darkTheme,
-  RainbowKitProvider,
 } from '@rainbow-me/rainbowkit';
-import { THEME } from '@/styles/theme';
-import { MAIN_FONT } from '@/styles/font';
 import ArrowDownIcon from '@/components/common/icons/ArrowDownIcon';
 
 
@@ -46,27 +42,27 @@ export default function Header() {
   };
 
   return (
-      <header className="sticky top-0 z-50 w-full bg-secondary/50 backdrop-blur-md border-b border-gray-600 shadow-lg">
-        <nav className="relative mx-auto flex h-20 max-w-[1760px] items-center gap-5 px-[12vw]">
-          <Link href='/'><Text strong className='text-4xl pr-8'>PolFT</Text></Link>
-          <SearchBar placeholder='Search NFTs, games, authors, ...' />
-          <Menu onClick={onClick} selectedKeys={[currentPage]} mode="horizontal" items={items} className='flex-1' />
-          <div className="flex gap-4 items-center h-9">
-            <ConnectWallet />
-            {/* <ConnectButton /> */}
-            <Notifications />
-            <Button className="px-0 h-full">
-              <Image
-                src="https://image-cdn.lootrush.com/unsafe/311x0/smart/filters:format(webp)/https%3A%2F%2Faxiecdn.axieinfinity.com%2Faxies%2F11782174%2Faxie%2Faxie-full-transparent.png"
-                alt="profile"
-                width={48}
-                height={36}
-              // className='w-full h-full'
-              />
-            </Button>
-          </div>
-        </nav>
-      </header>
+    <header className="sticky top-0 z-50 w-full bg-secondary/50 backdrop-blur-md border-b border-gray-600 shadow-lg">
+      <nav className="relative mx-auto flex h-20 max-w-[1760px] items-center gap-5 px-[12vw]">
+        <Link href='/'><Text strong className='text-4xl pr-8'>PolFT</Text></Link>
+        <SearchBar placeholder='Search NFTs, games, authors, ...' />
+        <Menu onClick={onClick} selectedKeys={[currentPage]} mode="horizontal" items={items} className='flex-1' />
+        <div className="flex gap-4 items-center h-9">
+          <ConnectWallet />
+          {/* <ConnectButton /> */}
+          <Notifications />
+          <Button className="px-0 h-full">
+            <Image
+              src="https://image-cdn.lootrush.com/unsafe/311x0/smart/filters:format(webp)/https%3A%2F%2Faxiecdn.axieinfinity.com%2Faxies%2F11782174%2Faxie%2Faxie-full-transparent.png"
+              alt="profile"
+              width={48}
+              height={36}
+            // className='w-full h-full'
+            />
+          </Button>
+        </div>
+      </nav>
+    </header>
   );
 }
 

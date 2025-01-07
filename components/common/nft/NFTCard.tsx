@@ -5,13 +5,13 @@ import { Typography } from "antd";
 
 const { Text } = Typography;
 
-type NFTCardProps = Pick<NFTInfo, "name" | "img" | "author" | "contract" | "tokenId" | "feePerDay">;
+type NFTCardProps = Pick<NFTInfo, "name" | "img" | "author" | "contractAddress" | "tokenId" | "feePerDay">;
 
 export default function NFTCard({
     name,
     img,
     author,
-    contract,
+    contractAddress,
     tokenId,
     feePerDay
 }: NFTCardProps) {
@@ -83,8 +83,8 @@ export default function NFTCard({
                 </div>
                 <div className="flex justify-center gap-2 w-full p-2 lg:p-4 bg-[rgb(45,45,63)] rounded-b-xl flex-wrap xl:flex-nowrap">
                     <div className="flex flex-col w-full justify-center">
-                        <HiddenCopyableText textToCopy={contract} iconProps={{ className: "w-[311px]", ellipsis: true }}>
-                            Contract: {contract}
+                        <HiddenCopyableText textToCopy={contractAddress} iconProps={{ className: "w-[311px]", ellipsis: true }}>
+                            Contract: {contractAddress}
                         </HiddenCopyableText>
                         <HiddenCopyableText textToCopy={tokenId} iconProps={{ ellipsis: true }}>
                             Token ID: {tokenId}

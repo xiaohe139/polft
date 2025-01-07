@@ -1,7 +1,7 @@
 'use client';
 import Image from "next/image";
 import React, { useState } from "react";
-import PoladotImage from '@/public/images/polkadot.png';
+import PolkadotImage from '@/public/images/polkadot.png';
 import { Button } from "antd";
 import Link from "next/link";
 import GamePlatformIcon from "@/components/common/icons/GamePlatform";
@@ -1798,7 +1798,7 @@ function Landing({
                                     className="flex gap-1 items-center bg-secondary/80 pr-3 py-2 rounded-3xl !no-underline !text-white"
                                 >
                                     <Image
-                                        src={PoladotImage}
+                                        src={PolkadotImage}
                                         className="flex-none w-5 ml-3 mr-1"
                                         alt="LootRush wallet"
                                     />

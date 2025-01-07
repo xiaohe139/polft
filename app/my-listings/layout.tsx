@@ -141,7 +141,7 @@ function ListNFT() {
         }));
     });
 
-    let walletAccount = useAccount();
+    const walletAccount = useAccount();
 
     const [openModal, setOpenModal] = useState(false);
     const [selectedCollection, setSelectedCollection] = useState(-1);
@@ -157,7 +157,6 @@ function ListNFT() {
 
     return (
         <>
-
             <Button
                 type="primary"
                 className="h-full"
