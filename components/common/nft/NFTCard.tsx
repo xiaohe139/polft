@@ -64,19 +64,8 @@ export default function NFTCard({
                                 {author}
                             </HiddenCopyableText>
                         </div>
-
-                        {/* <HiddenCopyableText textToCopy={tokenId} iconProps={{ ellipsis: true }}>
-                            Token ID: {tokenId}
-                        </HiddenCopyableText> */}
                     </div>
                 </div>
-                {/* <div className="flex justify-center gap-2 w-full p-2 lg:p-4 bg-[rgb(45,45,63)] rounded-b-xl flex-wrap xl:flex-nowrap">
-                    <div className="flex flex-col w-full justify-center">
-                        <HiddenCopyableText textToCopy={tokenId} iconProps={{ ellipsis: true }}>
-                            Token ID: {tokenId}
-                        </HiddenCopyableText>
-                    </div>
-                </div> */}
                 <Button className="py-6 mx-3 mb-3 group-hover/card:!bg-primary">
                     <Text className="font-bold text-lg">${feePerDay}/day</Text>
                 </Button>

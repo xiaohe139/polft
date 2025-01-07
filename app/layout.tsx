@@ -8,6 +8,7 @@ import { MAIN_FONT } from "@/styles/font";
 import SWRProvider from "@/components/provider/SWRProvider";
 import { lightenDarkenColor } from "@/utils/color";
 import WalletProvider from "@/components/provider/WalletProvider";
+import { ReduxProvider } from "@/redux/provider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -71,12 +72,14 @@ export default function RootLayout({
             }
           }}
         >
-          <SWRProvider>
-            <WalletProvider>
-              <Header />
-              {children}
-            </WalletProvider>
-          </SWRProvider>
+          <ReduxProvider>
+            <SWRProvider>
+              <WalletProvider>
+                <Header />
+                {children}
+              </WalletProvider>
+            </SWRProvider>
+          </ReduxProvider>
         </ConfigProvider>
       </body>
     </html>

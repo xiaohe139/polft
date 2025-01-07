@@ -1,9 +1,15 @@
 'use client';
+import NFTStatusText from "@/components/common/nft/NFTStatusText";
 import SearchBar from "@/components/common/SearchBar/SearchBar";
+import { listedNFTSelector } from "@/redux/nftSelector";
+import Image from "next/image";
+import { useSelector } from "react-redux";
 
 export default function MyListingsAssetsPage() {
+    const listedNFTs = useSelector(listedNFTSelector);
+
     return (
-        <div className="">
+        <div>
             <Statistic />
             <nav className="flex max-w-7xl mx-auto flex-col my-8" aria-label="Tabs">
                 <div className="w-full mt-4 flex gap-4 flex-row  max-w-full overflow-auto" />
@@ -11,11 +17,11 @@ export default function MyListingsAssetsPage() {
             <div className="flex flex-col">
                 <h2 className="text-2xl font-bold">Listed NFTs</h2>
                 <div className="w-full mt-4 flex gap-2 flex-wrap md:flex-nowrap">
-                    <SearchBar className="flex-1"/>
+                    <SearchBar className="flex-1" />
 
                 </div>
-                <div className="w-full flex justify-between items-center mt-2">
-                    <p>0 NFTs</p>
+                <div className="w-full flex justify-between items-center mt-2 font-bold">
+                    <p>{listedNFTs.length} NFTs</p>
                     <div className="relative">
                         <button
                             role="button"
@@ -45,6 +51,67 @@ export default function MyListingsAssetsPage() {
                         </button>
                     </div>
                 </div>
+                {listedNFTs.length > 0 &&
+                    <table className="w-full min-w-full table-fixed">
+                        <thead>
+                            <tr>
+                                <th className="px-2 py-3.5 text-left text-sm uppercase font-normal text-gray-400 select-none w-[20rem]">
+                                    Item
+                                </th>
+                                {/* <th className="px-2 py-3.5 text-left text-sm uppercase font-normal text-gray-400 select-none w-[10rem]">
+                                    Token ID
+                                </th> */}
+                                <th className="px-2 py-3.5 text-left text-sm uppercase font-normal text-gray-400 select-none w-[10rem]">
+                                    Collection
+                                </th>
+                                <th className="px-2 py-3.5 text-left text-sm uppercase font-normal text-gray-400 select-none w-[10rem]">
+                                    Listing date
+                                </th>
+                                <th className="px-2 py-3.5 text-left text-sm uppercase font-normal text-gray-400 select-none w-[10rem]">
+                                    Daily price
+                                </th>
+                                <th className="px-2 py-3.5 text-left text-sm uppercase font-normal text-gray-400 select-none w-[10rem]">
+                                    Total fees
+                                </th>
+                                <th className="px-2 py-3.5 text-left text-sm uppercase font-normal text-gray-400 select-none w-[10rem]">
+                                    Status
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                listedNFTs.map((nft) => (
+                                    <tr key={nft.tokenId} className="border-t border-t-gray-500 relative cursor-pointer hover:bg-[rgb(34,34,48)] !py-5 font-bold">
+                                        <td>
+                                            <div className="flex items-center gap-2">
+                                                <Image src={nft.img} alt="" width={80} height={80}/>
+                                                <span>{nft.name}</span>
+                                            </div>
+                                        </td>
+                                        {/* <td>
+                                            <span>{nft.tokenId}</span>
+                                        </td> */}
+                                        <td>
+                                            <span>{nft.collection}</span>
+                                        </td>
+                                        <td>
+                                            <span>{nft.listingDate}</span>
+                                        </td>
+                                        <td>
+                                            <span>${nft.feePerDay.toFixed(2)}</span>
+                                        </td>
+                                        <td>
+                                            <span className="text-[rgb(61,255,185)]">+${nft.totalFees.toFixed(4)}</span>
+                                        </td>
+                                        <td>
+                                            <NFTStatusText status={nft.status} />
+                                        </td>
+                                    </tr>
+                                ))
+                            }
+                        </tbody>
+                    </table>
+                }
             </div>
         </div>
     )

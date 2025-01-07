@@ -3,11 +3,15 @@ import { ChainAPI } from "@/api/chainAPI";
 import HiddenCopyableText from "@/components/common/HiddenCopyableText";
 import SearchBar from "@/components/common/SearchBar/SearchBar";
 import { CollectionInfo } from "@/interfaces/collection";
+import { NFTStatus } from "@/interfaces/nft";
+import { nftActions } from "@/redux/nft/nftSlice";
+import { formatDate } from "@/utils/formatter";
 import { Button, Col, Input, Modal, Row, Select, Typography } from "antd";
 import { isNaN } from "lodash";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import useSWR from "swr";
 import { useDebouncedCallback } from "use-debounce";
 import { useAccount } from "wagmi";
@@ -141,6 +145,8 @@ function ListNFT() {
         }));
     });
 
+    const dispatch = useDispatch();
+
     const walletAccount = useAccount();
 
     const [openModal, setOpenModal] = useState(false);
@@ -256,7 +262,7 @@ function ListNFT() {
                             </div>
                             <div className="flex flex-col gap-2">
                                 <Title level={4} className="!mb-0">Payout address: </Title>
-                                <Input className="!border-transparent h-10" disabled defaultValue={walletAccount.address}/>
+                                <Input className="!border-transparent h-10" disabled defaultValue={walletAccount.address} />
                             </div>
                             <div className="h-[1px] w-full bg-gray-600"></div>
                             <div className="flex flex-col gap-2">
@@ -286,7 +292,7 @@ function ListNFT() {
                                     <Text className="text-muted">{walletAccount.address}</Text>
                                 </div>
                             </div>
-                            <Button type="primary" className="py-6">
+                            <Button type="primary" className="py-6" onClick={handleListing}>
                                 <Text strong className="text-xl">Listing</Text>
                             </Button>
                         </div>
@@ -295,4 +301,18 @@ function ListNFT() {
             </Modal>
         </>
     );
+
+    function handleListing() {
+        dispatch(nftActions.addListedNFT([{
+            name: "hehe",
+            img: "https://image-cdn.lootrush.com/unsafe/311x0/smart/filters:format(webp)/https%3A%2F%2Faxiecdn.axieinfinity.com%2Faxies%2F11849301%2Faxie%2Faxie-full-transparent.png",
+            tokenId,
+            feePerDay,
+            totalFees: 0,
+            status: NFTStatus.AVAILABLE,
+            collection: availableCollections[selectedCollection].name,
+            listingDate: formatDate(new Date())
+        }]));
+        setOpenModal(false);
+    }
 }

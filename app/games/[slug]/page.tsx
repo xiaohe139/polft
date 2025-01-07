@@ -59,7 +59,7 @@ export default function GamePage({
                             <tbody className="">
                                 <tr className="border-t border-t-gray-500 relative cursor-pointer hover:bg-[rgb(34,34,48)]">
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-axies"
                                         >
@@ -71,50 +71,50 @@ export default function GamePage({
                                                 />
                                                 <span className="text-md">Axie Infinity: Axies</span>
                                             </div>
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-axies"
                                         >
                                             $0.0110
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-axies"
                                         >
                                             28,840
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-axies"
                                         >
                                             54,954
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-axies"
                                         >
                                             Astar
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-axies"
                                         >
                                             2
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-axies"
                                         >
@@ -131,12 +131,12 @@ export default function GamePage({
                                                     clipRule="evenodd"
                                                 />
                                             </svg>
-                                        </a>
+                                        </Link>
                                     </td>
                                 </tr>
                                 <tr className="border-t border-t-gray-500 relative cursor-pointer hover:bg-[rgb(34,34,48)]">
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-runes"
                                         >
@@ -148,50 +148,50 @@ export default function GamePage({
                                                 />
                                                 <span className="text-md">Axie Infinity: Runes</span>
                                             </div>
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-runes"
                                         >
                                             $0.0001
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-runes"
                                         >
                                             8
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-runes"
                                         >
                                             8
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-runes"
                                         >
                                             Astar
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-runes"
                                         >
                                             0
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-runes"
                                         >
@@ -208,12 +208,12 @@ export default function GamePage({
                                                     clipRule="evenodd"
                                                 />
                                             </svg>
-                                        </a>
+                                        </Link>
                                     </td>
                                 </tr>
                                 <tr className="border-t border-t-gray-500 relative cursor-pointer hover:bg-[rgb(34,34,48)]">
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-lands"
                                         >
@@ -225,50 +225,50 @@ export default function GamePage({
                                                 />
                                                 <span className="text-md">Axie Infinity: Lands</span>
                                             </div>
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-lands"
                                         >
                                             $0.4939
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-lands"
                                         >
                                             1
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-lands"
                                         >
                                             16,920
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-lands"
                                         >
                                             Astar
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-lands"
                                         >
                                             3
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-lands"
                                         >
@@ -285,12 +285,12 @@ export default function GamePage({
                                                     clipRule="evenodd"
                                                 />
                                             </svg>
-                                        </a>
+                                        </Link>
                                     </td>
                                 </tr>
                                 <tr className="border-t border-t-gray-500 relative cursor-pointer hover:bg-[rgb(34,34,48)]">
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-charms"
                                         >
@@ -302,50 +302,50 @@ export default function GamePage({
                                                 />
                                                 <span className="text-md">Axie Infinity: Charms</span>
                                             </div>
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-charms"
                                         >
                                             $0.1100
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-charms"
                                         >
                                             1
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-charms"
                                         >
                                             1
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-charms"
                                         >
                                             Astar
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-charms"
                                         >
                                             0
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-charms"
                                         >
@@ -362,12 +362,12 @@ export default function GamePage({
                                                     clipRule="evenodd"
                                                 />
                                             </svg>
-                                        </a>
+                                        </Link>
                                     </td>
                                 </tr>
                                 <tr className="border-t border-t-gray-500 relative cursor-pointer hover:bg-[rgb(34,34,48)]">
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-items"
                                         >
@@ -379,50 +379,50 @@ export default function GamePage({
                                                 />
                                                 <span className="text-md">Axie Infinity: Items</span>
                                             </div>
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-items"
                                         >
                                             $0.0001
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-items"
                                         >
                                             1
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-items"
                                         >
                                             44,322
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-items"
                                         >
                                             Astar
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-items"
                                         >
                                             0
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-items"
                                         >
@@ -439,12 +439,12 @@ export default function GamePage({
                                                     clipRule="evenodd"
                                                 />
                                             </svg>
-                                        </a>
+                                        </Link>
                                     </td>
                                 </tr>
                                 <tr className="border-t border-t-gray-500 relative cursor-pointer hover:bg-[rgb(34,34,48)]">
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-accessories"
                                         >
@@ -456,50 +456,50 @@ export default function GamePage({
                                                 />
                                                 <span className="text-md">Axie Infinity: Accessories</span>
                                             </div>
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-accessories"
                                         >
                                             $0.0000
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-accessories"
                                         >
                                             0
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-accessories"
                                         >
                                             43,000
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-accessories"
                                         >
                                             Astar
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-accessories"
                                         >
                                             0
-                                        </a>
+                                        </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
-                                        <a
+                                        <Link
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-accessories"
                                         >
@@ -516,7 +516,7 @@ export default function GamePage({
                                                     clipRule="evenodd"
                                                 />
                                             </svg>
-                                        </a>
+                                        </Link>
                                     </td>
                                 </tr>
                             </tbody>
