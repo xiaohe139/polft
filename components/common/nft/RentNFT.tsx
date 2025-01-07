@@ -34,7 +34,6 @@ export default function BuyNFT(props: {
             closeIcon={null}
             {...modalProps}
         >
-
             <div className="flex flex-1 relative md:inline-block transform shadow-lg transition-all md:align-middle md:w-full md:max-w-6xl">
                 <div className="absolute top-2 right-2">
                     <button
@@ -80,13 +79,13 @@ export default function BuyNFT(props: {
                             </div>
                             <div className="flex items-center mt-5 text-lg">
                                 Rent within
-                                <Input onChange={handleChangeRentalDays} className="w-[100px] mx-2 border-2 border-primary bg-secondary" max={1000} placeholder="amount" defaultValue={1}/>
+                                <Input onChange={handleChangeRentalDays} className="w-[100px] mx-2 border-2 border-primary bg-secondary" max={1000} placeholder="amount" defaultValue={1} />
                                 days
                             </div>
                             <div className="w-full border-t-2 mt-5 p-5 border-gray-600">
                                 <div className="flex justify-between">
                                     <h3 className="text-sm font-body">Item price</h3>
-                                    <h3 className="text-sm font-body text-right">{feePerDay * rentalDays} USD</h3>
+                                    <h3 className="text-sm font-body text-right">{parseFloat((feePerDay * rentalDays).toFixed(6))} USD</h3>
                                 </div>
                                 <div className="flex justify-between">
                                     <h3 className="text-sm font-normal">Gas fee</h3>
@@ -95,10 +94,10 @@ export default function BuyNFT(props: {
 
                                 <div className="flex justify-between mt-3 font-bold">
                                     <h3 className="text-xl font-body">Total</h3>
-                                    <h3 className="text-xl font-body text-right">${gasFee + feePerDay * rentalDays} USD</h3>
+                                    <h3 className="text-xl font-body text-right">${parseFloat((gasFee + feePerDay * rentalDays).toFixed(6))} USD</h3>
                                 </div>
                                 <Button className="w-full mt-5 py-5" type="primary">
-                                    <Text strong className="text-xl">Buy</Text>
+                                    <Text strong className="text-xl">Rent</Text>
                                 </Button>
                             </div>
 

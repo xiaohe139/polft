@@ -2,7 +2,6 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import PoladotImage from '@/public/images/polkadot.png';
-import AstarImage from '@/public/images/astar.png';
 import { Button } from "antd";
 import Link from "next/link";
 import GamePlatformIcon from "@/components/common/icons/GamePlatform";
@@ -12,9 +11,13 @@ import useSWR from "swr";
 import { isUndefined, uniqueId } from "lodash";
 import { CollectionAPI } from "@/api/collectionAPI";
 import SearchBar from "@/components/common/SearchBar/SearchBar";
-import BuyNFT from "@/components/common/nft/BuyNFT";
+import BuyNFT from "@/components/common/nft/RentNFT";
+import { CollectionInfo } from "@/interfaces/collection";
+import { ChainInfo } from "@/interfaces/chain";
+import { ChainAPI } from "@/api/chainAPI";
 
 const swrKey = uniqueId();
+const swrKey2 = uniqueId();
 
 export default function CollectionsPage({
     params
@@ -26,13 +29,22 @@ export default function CollectionsPage({
         data: collection,
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } = useSWR([swrKey, slug], ([_, slug]) => CollectionAPI.getCollectionBySlug(slug));
+    const {
+        data: chainInfo,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } = useSWR([swrKey2, collection?.chainId], ([_, chainId]) => {
+        if (isUndefined(chainId)) {
+            return undefined;
+        }
+        return ChainAPI.getChainById(chainId);
+    });
 
     const [selectedNFTIndex, setselectedNFTIndex] = useState(0);
 
     const [openBuyNFT, setOpenBuyNFT] = useState(false);
     return (
         <main>
-            <Landing></Landing>
+            {collection && chainInfo && <Landing collection={collection} chainInfo={chainInfo} />}
             <div className="px-5 md:px-10 max-w-[2560px] mx-auto mt-8">
                 <div className="relative">
                     <div className="flex flex-col">
@@ -40,7 +52,7 @@ export default function CollectionsPage({
 
                         <div className="flex flex-row justify-between mt-4 mb-4 items-center flex-wrap-reverse md:flex-nowrap">
                             <div className="flex flex-col px-4 md:px-0">
-                                <p className="text-md">Showing 5 results of 5</p>
+                                <p className="text-md">Showing 6 results of 6</p>
                                 <p />
                             </div>
                             <div className="relative">
@@ -1742,12 +1754,18 @@ export default function CollectionsPage({
                 </div>
             </div>
 
-            {!isUndefined(collection) && <BuyNFT nftInfo={collection.nfts[selectedNFTIndex]} open={openBuyNFT} onClose={() => setOpenBuyNFT(false)}/>}
+            {!isUndefined(collection) && <BuyNFT nftInfo={collection.nfts[selectedNFTIndex]} open={openBuyNFT} onClose={() => setOpenBuyNFT(false)} />}
         </main>
     )
 }
 
-function Landing() {
+function Landing({
+    collection,
+    chainInfo
+}: {
+    collection: Pick<CollectionInfo, 'img' | 'name'>;
+    chainInfo: Pick<ChainInfo, 'name' | 'img'>
+}) {
     return (
         <div className="relative pt-12">
             <div className="absolute inset-0">
@@ -1757,22 +1775,24 @@ function Landing() {
                 <div className="relative sm:rounded-2xl sm:overflow-hidden">
                     <div className="flex items-center relative">
                         <Image
-                            src="https://lootrush-website-assets.s3.us-east-1.amazonaws.com/images/games/axie-infinity-axies/Card.png"
+                            src={collection.img}
                             width={120}
                             height={10}
-                            alt="Axie Infinity: Axies logo"
+                            alt={collection.name}
                             className="flex-0 rounded-lg self-start"
                         />
                         <div className="flex flex-col items-start gap-4 ml-5  font-bold">
-                            <h1 className="text-4xl">Axie Infinity: Axies</h1>
+                            <h1 className="text-4xl">{collection.name}</h1>
                             <div className="flex flex-col md:flex-row items-start gap-3">
                                 <div className="flex gap-1 items-center bg-secondary/80 pr-3 py-2 rounded-3xl">
                                     <Image
-                                        src={AstarImage}
+                                        src={chainInfo.img}
                                         className="flex-none w-5 ml-3 mr-1"
-                                        alt="Astar"
+                                        alt={chainInfo.name}
+                                        width={20}
+                                        height={20}
                                     />
-                                    Astar
+                                    {chainInfo.name}
                                 </div>
                                 <div
                                     className="flex gap-1 items-center bg-secondary/80 pr-3 py-2 rounded-3xl !no-underline !text-white"
@@ -1794,7 +1814,10 @@ function Landing() {
                         </div>
                     </div>
                     <div className="flex flex-wrap md:absolute top-0 right-0 mt-4 md:mt-0">
-                        <button className="flex items-center bg-secondary/50 hover:bg-secondary/80 gap-1 cursor-pointer focus:border-none active:border-none transition w-full md:w-auto justify-between h-12 px-4 pl-5 rounded-xl relative font-semibold [&>svg]:hover:translate-x-2">
+                        <Link
+                            className="flex items-center bg-secondary/50 hover:bg-secondary/80 gap-1 cursor-pointer focus:border-none active:border-none transition w-full md:w-auto justify-between h-12 px-4 pl-5 rounded-xl relative font-semibold [&>svg]:hover:translate-x-2"
+                            href={"/my-listings/assets"}
+                        >
                             List your assets
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -1809,7 +1832,7 @@ function Landing() {
                                     clipRule="evenodd"
                                 />
                             </svg>
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>

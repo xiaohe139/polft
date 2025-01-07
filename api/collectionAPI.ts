@@ -3,6 +3,7 @@ import { CollectionInfo } from "@/interfaces/collection";
 export class CollectionAPI {
     static async getCollectionBySlug(slug: string): Promise<CollectionInfo> {
         return {
+            id: 1,
             nfts: [
                 {
                     name: "Axie #11849301",
@@ -52,7 +53,12 @@ export class CollectionAPI {
                     tokenId: "18",
                     feePerDay: 0.0108
                 },
-            ]
+            ],
+            img: "https://lootrush-website-assets.s3.us-east-1.amazonaws.com/images/games/axie-infinity-axies/Card.png",
+            name: 'Axie Infinity: Axies',
+            contract: "abc123",
+            chainId: 1
         }
     }
+
 }

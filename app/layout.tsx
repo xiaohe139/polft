@@ -6,6 +6,8 @@ import { THEME } from "@/styles/theme";
 import React from "react";
 import { MAIN_FONT } from "@/styles/font";
 import SWRProvider from "@/components/provider/SWRProvider";
+import { lightenDarkenColor } from "@/utils/color";
+import WalletProvider from "@/components/provider/WalletProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -34,6 +36,8 @@ export default function RootLayout({
                 colorBgContainer: THEME.LIGHT_SECONDARY_COLOR,
                 hoverBorderColor: THEME.HOVER_LIGHT_SECONDARY_COLOR,
                 activeBorderColor: THEME.HOVER_LIGHT_SECONDARY_COLOR,
+                colorBgContainerDisabled: lightenDarkenColor(THEME.LIGHT_SECONDARY_COLOR, 50),
+                colorTextDisabled: THEME.TEXT_MUTED_COLOR,
               },
               Menu: {
                 itemBg: 'transparent',
@@ -42,18 +46,36 @@ export default function RootLayout({
                 defaultBg: THEME.LIGHT_SECONDARY_COLOR,
                 defaultHoverBg: THEME.HOVER_LIGHT_SECONDARY_COLOR,
                 defaultActiveBg: THEME.HOVER_LIGHT_SECONDARY_COLOR,
-                lineWidth: 0
+                lineWidth: 0,
+                fontWeight: 'inherit',
+                fontSize: 'inherit',
+                // textTextHoverColor: THEME.TEXT_HOVER_COLOR,
+                // textHoverBg: THEME.HOVER_LIGHT_SECONDARY_COLOR,
               },
               Modal: {
                 // paddingLG: 0
                 contentBg: 'transparent',
+              },
+              Typography: {
+                fontSize: 'inherit',
+              },
+              Select: {
+                selectorBg: THEME.LIGHT_SECONDARY_COLOR,
+                colorTextPlaceholder: THEME.TEXT_COLOR,
+                // hoverBorderColor: THEME.HOVER_LIGHT_SECONDARY_COLOR,
+                // activeBorderColor: THEME.HOVER_LIGHT_SECONDARY_COLOR,
+                lineWidth: 0,
+                colorBgContainer: THEME.LIGHT_SECONDARY_COLOR,
+                colorBgContainerDisabled: lightenDarkenColor(THEME.LIGHT_SECONDARY_COLOR, 50),
               }
             }
           }}
         >
           <SWRProvider>
-            <Header />
-            {children}
+            <WalletProvider>
+              <Header />
+              {children}
+            </WalletProvider>
           </SWRProvider>
         </ConfigProvider>
       </body>

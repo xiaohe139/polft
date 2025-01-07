@@ -15,10 +15,10 @@ export enum GameCategory {
 }
 
 export enum GamePlatform {
-    Web,
-    Desktop,
-    Android,
-    iOS,
+    Web = "Web",
+    Desktop = "Desktop",
+    Android = "Android",
+    iOS = "iOS",
 }
 
 export interface GameInfo {
