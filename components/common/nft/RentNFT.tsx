@@ -5,14 +5,15 @@ import { ModalProps } from "antd/lib/modal";
 import { useState } from "react";
 const { Text } = Typography;
 
-export default function BuyNFT(props: {
+export default function RentNFT(props: {
     nftInfo: NFTInfo,
 } & ModalProps) {
     const {
         nftInfo: {
             name,
             img,
-            feePerDay
+            feePerDay,
+            tokenId
         },
         ...modalProps
     } = props;
@@ -60,7 +61,7 @@ export default function BuyNFT(props: {
                     <div className="md:grid grid-cols-[10fr_5fr]">
                         <div className="flex flex-col p-6 bg-light-secondary justify-start min-w-full">
                             <h4 className="break-words max-w-sm font-bold text-2xl">{name}</h4>
-
+                            <Text className="text-thin text-base">Token ID: <Text className="text-muted">{tokenId}</Text></Text>
                             <Text className="text-[#44C174]">Delivery in less than 1min</Text>
                             <div translate="no" className="flex flex-col gap-2 mt-5">
                                 <div

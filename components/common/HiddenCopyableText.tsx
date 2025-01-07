@@ -3,7 +3,7 @@ import { Typography } from "antd";
 
 const { Text } = Typography;
 
-export default function HiddenCopyableText(props: TextProps & {textToCopy?: string} & {iconProps: TextProps}) {
+export default function HiddenCopyableText(props: TextProps & {textToCopy?: string} & {iconProps?: TextProps}) {
     const { textToCopy, iconProps, children, ...textProps } = props;
     return (
         <Text

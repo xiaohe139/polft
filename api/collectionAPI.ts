@@ -10,7 +10,7 @@ export class CollectionAPI {
                     img: "https://image-cdn.lootrush.com/unsafe/311x0/smart/filters:format(webp)/https%3A%2F%2Faxiecdn.axieinfinity.com%2Faxies%2F11849301%2Faxie%2Faxie-full-transparent.png",
                     author: "0x8fb4c08d902c4ba250c3bfd4055a66a2f7764e4d",
                     contractAddress: "0x8fb4c08d902c4ba250c3bfd4055a66a2f7764e4d",
-                    tokenId: "18",
+                    tokenId: "11849301",
                     feePerDay: 0.0108
                 },
                 {
@@ -18,7 +18,7 @@ export class CollectionAPI {
                     img: "https://image-cdn.lootrush.com/unsafe/311x0/smart/filters:format(webp)/https%3A%2F%2Faxiecdn.axieinfinity.com%2Faxies%2F11838915%2Faxie%2Faxie-full-transparent.png",
                     author: "0x8fb4c08d902c4ba250c3bfd4055a66a2f7764e4d",
                     contractAddress: "0x8fb4c08d902c4ba250c3bfd4055a66a2f7764e4d",
-                    tokenId: "18",
+                    tokenId: "11838915",
                     feePerDay: 0.0108
                 },
                 {
@@ -26,7 +26,7 @@ export class CollectionAPI {
                     img: "https://image-cdn.lootrush.com/unsafe/311x0/smart/filters:format(webp)/https%3A%2F%2Faxiecdn.axieinfinity.com%2Faxies%2F11629098%2Faxie%2Faxie-full-transparent.png",
                     author: "0x8fb4c08d902c4ba250c3bfd4055a66a2f7764e4d",
                     contractAddress: "0x8fb4c08d902c4ba250c3bfd4055a66a2f7764e4d",
-                    tokenId: "18",
+                    tokenId: "11629098",
                     feePerDay: 0.0108
                 },
                 {
@@ -34,7 +34,7 @@ export class CollectionAPI {
                     img: "https://image-cdn.lootrush.com/unsafe/311x0/smart/filters:format(webp)/https%3A%2F%2Faxiecdn.axieinfinity.com%2Faxies%2F11678698%2Faxie%2Faxie-full-transparent.png",
                     author: "0x8fb4c08d902c4ba250c3bfd4055a66a2f7764e4d",
                     contractAddress: "0x8fb4c08d902c4ba250c3bfd4055a66a2f7764e4d",
-                    tokenId: "18",
+                    tokenId: "11678698",
                     feePerDay: 0.0108
                 },
                 {
@@ -42,7 +42,7 @@ export class CollectionAPI {
                     img: "https://image-cdn.lootrush.com/unsafe/311x0/smart/filters:format(webp)/https%3A%2F%2Faxiecdn.axieinfinity.com%2Faxies%2F11649902%2Faxie%2Faxie-full-transparent.png",
                     author: "0x8fb4c08d902c4ba250c3bfd4055a66a2f7764e4d",
                     contractAddress: "0x8fb4c08d902c4ba250c3bfd4055a66a2f7764e4d",
-                    tokenId: "18",
+                    tokenId: "11649902",
                     feePerDay: 0.0108
                 },
                 {
@@ -50,13 +50,13 @@ export class CollectionAPI {
                     img: "https://image-cdn.lootrush.com/unsafe/311x0/smart/filters:format(webp)/https%3A%2F%2Fcdn.axieinfinity.com%2Fmarketplace-website%2Faxie-eggs%2Freptile-dusk.png",
                     author: "0x8fb4c08d902c4ba250c3bfd4055a66a2f7764e4d",
                     contractAddress: "0x8fb4c08d902c4ba250c3bfd4055a66a2f7764e4d",
-                    tokenId: "18",
+                    tokenId: "12042712",
                     feePerDay: 0.0108
                 },
             ],
             img: "https://lootrush-website-assets.s3.us-east-1.amazonaws.com/images/games/axie-infinity-axies/Card.png",
             name: 'Axie Infinity: Axies',
-            contract: "abc123",
+            contract: "0x8fb4c08d902c4ba250c3bfd4055a66a2f7764e4d",
             chainId: 1
         }
     }

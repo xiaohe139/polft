@@ -24,8 +24,7 @@ export default function HomeGameEntry({
                 <img
                     src={img}
                     alt={name}
-                    className="absolute w-full h-full object-cover"
-                    style={{ transform: "none" }}
+                    className="absolute w-full h-full object-cover hover:scale-110 transform transition-transform duration-300"
                 />
             </div>
             <div className="flex flex-col gap-1 px-2 py-2 text-sm">

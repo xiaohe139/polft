@@ -11,10 +11,11 @@ import useSWR from "swr";
 import { isUndefined, uniqueId } from "lodash";
 import { CollectionAPI } from "@/api/collectionAPI";
 import SearchBar from "@/components/common/SearchBar/SearchBar";
-import BuyNFT from "@/components/common/nft/RentNFT";
+import RentNFT from "@/components/common/nft/RentNFT";
 import { CollectionInfo } from "@/interfaces/collection";
 import { ChainInfo } from "@/interfaces/chain";
 import { ChainAPI } from "@/api/chainAPI";
+import HiddenCopyableText from "@/components/common/HiddenCopyableText";
 
 const swrKey = uniqueId();
 const swrKey2 = uniqueId();
@@ -1748,13 +1749,12 @@ export default function CollectionsPage({
                                     ))
                                 }
                             </div>
-                            <p className="opacity-0 pt-20">Load more</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            {!isUndefined(collection) && <BuyNFT nftInfo={collection.nfts[selectedNFTIndex]} open={openBuyNFT} onClose={() => setOpenBuyNFT(false)} />}
+            {!isUndefined(collection) && <RentNFT nftInfo={collection.nfts[selectedNFTIndex]} open={openBuyNFT} onClose={() => setOpenBuyNFT(false)} />}
         </main>
     )
 }
@@ -1763,7 +1763,7 @@ function Landing({
     collection,
     chainInfo
 }: {
-    collection: Pick<CollectionInfo, 'img' | 'name'>;
+    collection: Pick<CollectionInfo, 'img' | 'name' | 'contract'>;
     chainInfo: Pick<ChainInfo, 'name' | 'img'>
 }) {
     return (
@@ -1805,12 +1805,17 @@ function Landing({
                                     AssetHub Integrated
                                 </div>
                             </div>
-                            <Button className="hover:!text-text-primary bg-secondary/80 py-5 rounded-full text-[16px]">
-                                <GamePlatformIcon platform={GamePlatform.Web} />
-                                <Link href="https://axieinfinity.com" className="font-bold" target="_blank">
-                                    Website
-                                </Link>
-                            </Button>
+                            <div className="flex gap-4">
+                                <Button className="hover:!text-text-primary bg-secondary/80 py-5 rounded-full text-[16px]">
+                                    <GamePlatformIcon platform={GamePlatform.Web} />
+                                    <Link href="https://axieinfinity.com" className="font-bold" target="_blank">
+                                        Website
+                                    </Link>
+                                </Button>
+                                <Button className="rounded-full py-5 bg-secondary/80">
+                                    <HiddenCopyableText>{collection.contract}</HiddenCopyableText>
+                                </Button>
+                            </div>
                         </div>
                     </div>
                     <div className="flex flex-wrap md:absolute top-0 right-0 mt-4 md:mt-0">

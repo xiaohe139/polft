@@ -1,21 +1,24 @@
 'use client';
+import { GameAPI } from "@/api/gameAPI";
 import ArrowDownIcon from "@/components/common/icons/ArrowDownIcon";
 import GamePlatformIcon from "@/components/common/icons/GamePlatform";
 import SubmitNFTIcon from "@/components/common/icons/SubmitNFTIcon";
 import SearchBar from "@/components/common/SearchBar/SearchBar";
 import HomeGameEntry from "@/components/home/HomeGameEntry";
 import { ChainInfo } from "@/interfaces/chain";
-import { GameCategory, GamePlatform } from "@/interfaces/game";
+import { GamePlatform } from "@/interfaces/game";
 import { randInt } from "@/utils/math";
 import { Button, Typography } from "antd";
+import { uniqueId } from "lodash";
 import Image from "next/image";
+import useSWR from "swr";
 
-const {Text} = Typography;
+const { Text } = Typography;
 
 const availableBlockchains: (Pick<ChainInfo, 'name' | 'img'>)[] = [{
     img: "https://parachains.info/images/parachains/1642419231_ajuna_logo.png",
     name: "Ajuna Network"
-},{
+}, {
     img: "https://parachains.info/images/parachains/1649424653_bajun_network_logo_2.png",
     name: "Bajun Network"
 }, {
@@ -24,7 +27,7 @@ const availableBlockchains: (Pick<ChainInfo, 'name' | 'img'>)[] = [{
 }, {
     img: "https://parachains.info/images/parachains/1667406145_darwinia_logo.jpg",
     name: "Darwinia"
-},{
+}, {
     img: "https://parachains.info/images/parachains/1713531254_laos_logo2.png",
     name: "LAOS"
 }, {
@@ -50,11 +53,16 @@ const availableBlockchains: (Pick<ChainInfo, 'name' | 'img'>)[] = [{
     name: "Ava Protocol"
 }];
 
+const swrKey = uniqueId();
+
 export default function Home() {
+    const {
+        data: games,
+    } = useSWR(swrKey, GameAPI.getAllGames);
     return (
         <>
-            <section
-                className="flex flex-col md:flex-row md:gap-6 px-5 md:px-10 pt-6 max-w-[1920px] mx-auto">
+            {/* <Landing /> */}
+            <section className="flex flex-col md:flex-row md:gap-6 px-5 md:px-10 pt-6 max-w-[1920px] mx-auto">
                 <div className="bg-secondary/80 backdrop-blur-lg flex flex-col gap-8 w-full pb-2 md:w-[16rem] z-40 sticky top-[142px] md:top-[110px] md:overflow-auto md:h-[calc(100vh-180px)] scrollbar-none">
                     <Button className="flex items-center gap-2 py-5 hover:!text-text-hover">
                         <SubmitNFTIcon />
@@ -70,7 +78,7 @@ export default function Home() {
                             {
                                 availableBlockchains.map((chain) => (
                                     <div className="flex items-center gap-2 text-muted hover:text-text-primary cursor-pointer" key={chain.name}>
-                                        <Image src={chain.img} alt="" width={25} height={25} className="rounded-full"/>
+                                        <Image src={chain.img} alt="" width={25} height={25} className="rounded-full" />
                                         <Text className="flex-1 text-inherit">{chain.name}</Text>
                                         <Text className="text-inherit">{randInt(30, 100)}</Text>
                                     </div>
@@ -85,7 +93,7 @@ export default function Home() {
                             {
                                 [GamePlatform.Web, GamePlatform.Android, GamePlatform.Desktop, GamePlatform.iOS].map((platform) => (
                                     <div className="flex items-center gap-2 text-muted hover:text-text-primary cursor-pointer" key={platform}>
-                                        <GamePlatformIcon platform={platform}/>
+                                        <GamePlatformIcon platform={platform} />
                                         <Text className="flex-1 text-inherit">{platform}</Text>
                                         <Text className="text-inherit">{randInt(30, 100)}</Text>
                                     </div>
@@ -132,233 +140,11 @@ export default function Home() {
                         </div>
                         <div
                             className="grid grid-cols-2 items-start lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 flex-1 mb-4">
-                            <HomeGameEntry
-                                name={"Gods Unchained"}
-                                plug={"gods-unchained"}
-                                img={"https://image-cdn.lootrush.com/unsafe/800x0/smart/filters:format(webp)/https%3A%2F%2Flootrush-website-assets.s3.us-east-1.amazonaws.com%2Fimages%2Fgames%2Fgods-unchained%2FCard.png"}
-                                visits={100000}
-                                items={50000}
-                                offers={5}
-                                categories={[GameCategory.Card, GameCategory.PVP]}
-                                platforms={[GamePlatform.Android, GamePlatform.Desktop]}
-                            />
-
-                            <HomeGameEntry
-                                name={"Axie Infinity"}
-                                plug={"axie-infinity"}
-                                img={"https://image-cdn.lootrush.com/unsafe/800x0/smart/filters:format(webp)/https%3A%2F%2Flootrush-website-assets.s3.us-east-1.amazonaws.com%2Fimages%2Fgames%2Faxie-infinity-accessories%2FCard.png"}
-                                visits={1e6} items={10000} offers={5}
-                                categories={[GameCategory.Breeding, GameCategory.Card]}
-                                platforms={[GamePlatform.Android, GamePlatform.iOS]}
-                            />
-                            <HomeGameEntry
-                                name={"Pixels"}
-                                plug={"pixels"}
-                                img={"https://image-cdn.lootrush.com/unsafe/800x0/smart/filters:format(webp)/https%3A%2F%2Flootrush-website-assets.s3.us-east-1.amazonaws.com%2Fimages%2Fgames%2Fpixels---farm-land807754%2FCard.png"}
-                                visits={100000}
-                                items={250}
-                                offers={0}
-                                categories={[GameCategory.Adventure, GameCategory.MMORPG]}
-                                platforms={[GamePlatform.Web]}
-                            />
-
-                            <HomeGameEntry
-                                name={"Wild Forest"}
-                                plug={"wild-forest"}
-                                img={"https://image-cdn.lootrush.com/unsafe/800x0/smart/filters:format(webp)/https%3A%2F%2Flootrush-website-assets.s3.us-east-1.amazonaws.com%2Fimages%2Fgames%2Fwild-forest---units945084%2FCard.png"}
-                                visits={10000}
-                                items={250}
-                                offers={0}
-                                categories={[GameCategory.Card, GameCategory.PVP]}
-                                platforms={[GamePlatform.Android, GamePlatform.iOS]}
-                            />
-
-                            <HomeGameEntry
-                                name={"Pixels Spirit of Mimo"}
-                                plug={"pixels-spirit-of-mimo091159"}
-                                img={"https://image-cdn.lootrush.com/unsafe/800x0/smart/filters:format(webp)/https%3A%2F%2Flootrush-website-assets.s3.us-east-1.amazonaws.com%2Fimages%2Fgames%2Fpixels-spirit-of-mimo091159%2FCard.png"}
-                                visits={1000}
-                                items={1000}
-                                offers={0}
-                                categories={[]}
-                                platforms={[]}
-                            />
-
-                            <HomeGameEntry
-                                name={"Apeiron"}
-                                plug={"apeiron"}
-                                img={"https://image-cdn.lootrush.com/unsafe/800x0/smart/filters:format(webp)/https%3A%2F%2Flootrush-website-assets.s3.us-east-1.amazonaws.com%2Fimages%2Fgames%2Fapeiron---star-(ronin)331453%2FCard.png"}
-                                visits={100000}
-                                items={500}
-                                offers={0}
-                                categories={[GameCategory.Action, GameCategory.Adventure]}
-                                platforms={[GamePlatform.Web]}
-                            />
-
-                            <HomeGameEntry
-                                name={"Pixel Chibis NFT"}
-                                plug={"pixels---chibis378201"}
-                                img={"https://image-cdn.lootrush.com/unsafe/800x0/smart/filters:format(webp)/https%3A%2F%2Flootrush-website-assets.s3.us-east-1.amazonaws.com%2Fimages%2Fgames%2Fpixels---chibis378201%2FCard.png"}
-                                visits={0}
-                                items={500}
-                                offers={0}
-                                categories={[]}
-                                platforms={[]}
-                            />
-
-                            <HomeGameEntry
-                                name={"Parallel"}
-                                plug={"parallel"}
-                                img={"https://image-cdn.lootrush.com/unsafe/800x0/smart/filters:format(webp)/https%3A%2F%2Flootrush-website-assets.s3.us-east-1.amazonaws.com%2Fimages%2Fgames%2Fparallel-cosmetics-(llcm)362351%2FCard.png"}
-                                visits={100000}
-                                items={500}
-                                offers={0}
-                                categories={[GameCategory.Card, GameCategory.SciFi]}
-                                platforms={[]}
-                            />
-
-                            <HomeGameEntry
-                                name={"Moon Doonz - Pixels Avatars"}
-                                plug={"doonz---pixels-avatars846846"}
-                                img={"https://image-cdn.lootrush.com/unsafe/800x0/smart/filters:format(webp)/https%3A%2F%2Flootrush-website-assets.s3.us-east-1.amazonaws.com%2Fimages%2Fgames%2Fdoonz---pixels-avatars846846%2FCard.png"}
-                                visits={0}
-                                items={500}
-                                offers={0}
-                                categories={[]}
-                                platforms={[]}
-                            />
-
-                            <HomeGameEntry
-                                name={"Dizzy Demons"}
-                                plug={"dizzy-demons---pixels-avatar372062"}
-                                img={"https://image-cdn.lootrush.com/unsafe/800x0/smart/filters:format(webp)/https%3A%2F%2Flootrush-website-assets.s3.us-east-1.amazonaws.com%2Fimages%2Fgames%2Fdizzy-demons---pixels-avatar372062%2FCard.png"}
-                                visits={0}
-                                items={1000}
-                                offers={0}
-                                categories={[]}
-                                platforms={[]}
-                            />
-
-                            <HomeGameEntry
-                                name={"Pixel Porks"}
-                                plug={"pixel-porks040135"}
-                                img={"https://image-cdn.lootrush.com/unsafe/800x0/smart/filters:format(webp)/https%3A%2F%2Flootrush-website-assets.s3.us-east-1.amazonaws.com%2Fimages%2Fgames%2Fpixel-porks040135%2FCard.png"}
-                                visits={0}
-                                items={250}
-                                offers={0}
-                                categories={[]}
-                                platforms={[]}
-                            />
-
-                            <HomeGameEntry
-                                name={"Guild of Guardians"}
-                                plug={"guild-of-guardians"}
-                                img={"https://image-cdn.lootrush.com/unsafe/800x0/smart/filters:format(webp)/https%3A%2F%2Flootrush-website-assets.s3.us-east-1.amazonaws.com%2Fimages%2Fgames%2Fguild-of-guardians-items%2FCard.png"}
-                                visits={10000}
-                                items={250}
-                                offers={0}
-                                categories={[GameCategory.Action, GameCategory.Fantasy]}
-                                platforms={[GamePlatform.Android, GamePlatform.iOS]}
-                            />
-
-                            <HomeGameEntry
-                                name={"Ragnarok Monster World"}
-                                plug={"ragnarok:-monster-world137662"}
-                                img={"https://image-cdn.lootrush.com/unsafe/800x0/smart/filters:format(webp)/https%3A%2F%2Flootrush-website-assets.s3.us-east-1.amazonaws.com%2Fimages%2Fgames%2Fragnarok%3A-monster-world137662%2FCard.png"}
-                                visits={0}
-                                items={250}
-                                offers={0}
-                                categories={[]}
-                                platforms={[]}
-                            />
-
-                            <HomeGameEntry
-                                name={"CyberKongz"}
-                                plug={"cyberkongz"}
-                                img={"https://image-cdn.lootrush.com/unsafe/800x0/smart/filters:format(webp)/https%3A%2F%2Flootrush-website-assets.s3.us-east-1.amazonaws.com%2Fimages%2Fgames%2Fcyberkongz---vx-gear-(ronin)478641%2FCard.png"}
-                                visits={100000}
-                                items={25}
-                                offers={0}
-                                categories={[GameCategory.Breeding]}
-                                platforms={[GamePlatform.Web]}
-                            />
-
-                            <HomeGameEntry
-                                name={"Planet IX"}
-                                plug={"planet-ix"}
-                                img={"https://image-cdn.lootrush.com/unsafe/800x0/smart/filters:format(webp)/https%3A%2F%2Flootrush-website-assets.s3.us-east-1.amazonaws.com%2Fimages%2Fgames%2Fplanetix-land%2FCard.png"}
-                                visits={100000}
-                                items={50}
-                                offers={0}
-                                categories={[GameCategory.Sandbox, GameCategory.Simulation]}
-                                platforms={[GamePlatform.Desktop]}
-                            />
-
-                            <HomeGameEntry
-                                name={"Crypto Unicorns"}
-                                plug={"crypto-unicorns"}
-                                img={"https://image-cdn.lootrush.com/unsafe/800x0/smart/filters:format(webp)/https%3A%2F%2Flootrush-website-assets.s3.us-east-1.amazonaws.com%2Fimages%2Fgames%2Fcrypto-unicorns%2FCard.png"}
-                                visits={100000}
-                                items={50}
-                                offers={0}
-                                categories={[GameCategory.PVP, GameCategory.Racing]}
-                                platforms={[GamePlatform.Web]}
-                            />
-
-                            <HomeGameEntry
-                                name={"Illuvium"}
-                                plug={"illuvium"}
-                                img={"https://image-cdn.lootrush.com/unsafe/800x0/smart/filters:format(webp)/https%3A%2F%2Flootrush-website-assets.s3.us-east-1.amazonaws.com%2Fimages%2Fgames%2Filluvium%2FCard.png"}
-                                visits={500000}
-                                items={50}
-                                offers={0}
-                                categories={[GameCategory.Card]}
-                                platforms={[]}
-                            />
-
-                            <HomeGameEntry
-                                name={"Pyjamas Clubs - Pixels"}
-                                plug={"pyjamas-clubs---pixels886308"}
-                                img={"https://image-cdn.lootrush.com/unsafe/800x0/smart/filters:format(webp)/https%3A%2F%2Flootrush-website-assets.s3.us-east-1.amazonaws.com%2Fimages%2Fgames%2Fpyjamas-clubs---pixels886308%2FCard.png"}
-                                visits={0}
-                                items={50}
-                                offers={0}
-                                categories={[]}
-                                platforms={[]}
-                            />
-
-                            <HomeGameEntry
-                                name={"Cross the Ages"}
-                                plug={"cross-the-ages"}
-                                img={"https://image-cdn.lootrush.com/unsafe/800x0/smart/filters:format(webp)/https%3A%2F%2Flootrush-website-assets.s3.us-east-1.amazonaws.com%2Fimages%2Fgames%2Fcross-the-ages%2FCard.png"}
-                                visits={10000}
-                                items={50}
-                                offers={0}
-                                categories={[GameCategory.Card, GameCategory.Strategy]}
-                                platforms={[GamePlatform.Desktop]}
-                            />
-
-                            <HomeGameEntry
-                                name={"Undead Blocks"}
-                                plug={"undead-blocks"}
-                                img={"https://image-cdn.lootrush.com/unsafe/800x0/smart/filters:format(webp)/https%3A%2F%2Flootrush-website-assets.s3.us-east-1.amazonaws.com%2Fimages%2Fgames%2Fundead-blocks-skin-vaults%2FCard.png"}
-                                visits={10000}
-                                items={50}
-                                offers={0}
-                                categories={[GameCategory.Action, GameCategory.Adventure]}
-                                platforms={[GamePlatform.Android, GamePlatform.iOS]}
-                            />
-
-                            <HomeGameEntry
-                                name={"DeFi Kingdoms"}
-                                plug={"defi-kingdoms"}
-                                img={"https://image-cdn.lootrush.com/unsafe/800x0/smart/filters:format(webp)/https%3A%2F%2Flootrush-website-assets.s3.us-east-1.amazonaws.com%2Fimages%2Fgames%2Fdefi-kingdoms-heroes%2FCard.png"}
-                                visits={100000}
-                                items={50}
-                                offers={0}
-                                categories={[GameCategory.MMOORPG]}
-                                platforms={[GamePlatform.Web]}
-                            />
+                            {
+                                games?.map((game) => (
+                                    <HomeGameEntry key={game.plug} {...game} />
+                                ))
+                            }
                         </div>
                     </div>
                     <p className="opacity-0 pt-10">Load more</p>
@@ -367,4 +153,53 @@ export default function Home() {
 
         </>
     );
+}
+
+function Landing() {
+    return (
+        <div className="bg-gradient-to-b from-secondary to-light-secondary py-10">
+            <div className="px-5 md:px-10 max-w-[1920px] mx-auto">
+                <div className="flex flex-col md:flex-row gap-4">
+                    <div className="flex flex-col gap-8 md:gap-4 justify-center md:w-2/6">
+                        <h1 className="text-4xl md:text-5xl">Rent all gaming NFTs</h1>
+                        <div className="hidden md:flex flex-col gap-2 text-muted">
+                            <div className="flex gap-2">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    className="w-6 h-6"
+                                >
+                                    <path
+                                        fillRule="evenodd"
+                                        d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z"
+                                        clipRule="evenodd"
+                                    />
+                                </svg>
+                                <p>Rent individual NFTs or subscribe to 100,000+ NFTs</p>
+                            </div>
+                            <div className="flex gap-2">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    className="w-6 h-6"
+                                >
+                                    <path
+                                        fillRule="evenodd"
+                                        d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z"
+                                        clipRule="evenodd"
+                                    />
+                                </svg>
+                                <p>Can't find an NFT? Subscribe and request it.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    )
 }
