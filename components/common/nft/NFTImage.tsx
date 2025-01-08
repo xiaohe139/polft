@@ -26,8 +26,9 @@ function Inner({
     className,
     onNFT
 }: NFTImageProps) {
-    const { nft, loading } = useNft(contractAddress, tokenId);
+    const { nft, loading } = useNft(contractAddress, tokenId.toString());
 
+    console.log({nft, loading});
     useEffect(() => {
         if (!isUndefined(nft)) {
             onNFT?.(nft);

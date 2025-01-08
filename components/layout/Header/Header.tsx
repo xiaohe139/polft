@@ -44,7 +44,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full bg-secondary/50 backdrop-blur-md border-b border-gray-600 shadow-lg">
       <nav className="relative mx-auto flex h-20 max-w-[1760px] items-center gap-5 px-[12vw]">
-        <Link href='/'><Text strong className='text-4xl pr-8'>PolFT</Text></Link>
+        <Link href='/'><Text strong className='text-4xl pr-8 text-primary'>PolFT</Text></Link>
         <SearchBar placeholder='Search NFTs, games, authors, ...' />
         <Menu onClick={onClick} selectedKeys={[currentPage]} mode="horizontal" items={items} className='flex-1' />
         <div className="flex gap-4 items-center h-9">

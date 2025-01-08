@@ -1,10 +1,13 @@
 'use client';
 import { ChainAPI } from "@/api/chainAPI";
 import HiddenCopyableText from "@/components/common/HiddenCopyableText";
+import NFTImage from "@/components/common/nft/NFTImage";
 import SearchBar from "@/components/common/SearchBar/SearchBar";
 import { CollectionInfo } from "@/interfaces/collection";
 import { NFTStatus } from "@/interfaces/nft";
 import { nftActions } from "@/redux/nft/nftSlice";
+import { polftLendAbi } from "@/utils/abi";
+import { ERC721Abi } from "@/utils/abi/erc721";
 import { formatDate } from "@/utils/formatter";
 import { Button, Col, Input, Modal, Row, Select, Typography } from "antd";
 import { isNaN } from "lodash";
@@ -14,6 +17,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import useSWR from "swr";
 import { useDebouncedCallback } from "use-debounce";
+import { erc721Abi } from "viem";
 import { useAccount, useWriteContract } from "wagmi";
 
 const { Text, Title } = Typography;
@@ -98,41 +102,43 @@ export default function MyListingsLayout({
     )
 }
 
+const mockNFTAddress = "0xFA0bF8c359e83191b017Bb8f8383BBF915F6Ad39";
+
 const availableCollections: Pick<CollectionInfo, 'id' | 'name' | 'img' | 'contract' | 'chainId'>[] = [{
     id: 1,
     name: 'Axie Infinity: Axies',
     img: 'https://lootrush-website-assets.s3.us-east-1.amazonaws.com/images/games/axie-infinity-axies/Icon.png',
-    contract: '0x6F687272eb22A8CCe8fc73c88B3Fb01C77C0E5Ff',
+    contract: mockNFTAddress,
     chainId: 1
 }, {
     id: 2,
     name: "Axie Infinity: Lands",
     img: "https://lootrush-website-assets.s3.us-east-1.amazonaws.com/images/games/axie-infinity-lands/Icon.png",
-    contract: '0x6F687272eb22A8CCe8fc73c88B3Fb01C77C0E5Ff',
+    contract: mockNFTAddress,
     chainId: 1
 }, {
     id: 3,
     name: "Axie Infinity: Charms",
     img: "https://lootrush-website-assets.s3.us-east-1.amazonaws.com/images/games/axie-infinity-charms/Icon.png",
-    contract: '0x6F687272eb22A8CCe8fc73c88B3Fb01C77C0E5Ff',
+    contract: mockNFTAddress,
     chainId: 1
 }, {
     id: 4,
     name: "Axie Infinity: Runes",
     img: "https://lootrush-website-assets.s3.us-east-1.amazonaws.com/images/games/axie-infinity-runes/Icon.png",
-    contract: '0x6F687272eb22A8CCe8fc73c88B3Fb01C77C0E5Ff',
+    contract: mockNFTAddress,
     chainId: 1
 }, {
     id: 5,
     name: "Axie Infinity: Accessories",
     img: "https://lootrush-website-assets.s3.us-east-1.amazonaws.com/images/games/axie-infinity-accessories/Icon.png",
-    contract: '0x6F687272eb22A8CCe8fc73c88B3Fb01C77C0E5Ff',
+    contract: mockNFTAddress,
     chainId: 1
 }, {
     id: 6,
     name: "Axie Infinity: Items",
     img: "https://lootrush-website-assets.s3.us-east-1.amazonaws.com/images/games/axie-infinity-items/Icon.png",
-    contract: '0x6F687272eb22A8CCe8fc73c88B3Fb01C77C0E5Ff',
+    contract: mockNFTAddress,
     chainId: 1
 }];
 
@@ -259,6 +265,7 @@ function ListNFT() {
                             <div className="flex flex-col gap-2">
                                 <Title level={4} className="!mb-0">Token ID: </Title>
                                 <Input placeholder="E.g: 18" className="border-transparent h-10" onChange={(e) => validateTokenId(Number(e.target.value))} />
+                                {/* <NFTImage tokenId={"0"} contractAddress={"0xFA0bF8c359e83191b017Bb8f8383BBF915F6Ad39"} rpcUrl={"https://moonbase-alpha.drpc.org"} /> */}
                             </div>
                             <div className="flex flex-col gap-2">
                                 <Title level={4} className="!mb-0">Fee per day (in USD): </Title>
@@ -307,6 +314,46 @@ function ListNFT() {
     );
 
     async function handleListing() {
+
+        // approve NFT
+        // let txHash = await writeContractAsync({
+        //     abi: ERC721Abi,
+        //     functionName: "approve",
+        //     address: availableCollections[selectedCollection].contract as "0x${string}",
+        //     args: [process.env.LEND_CONTRACT_ADDRESS, tokenId]
+        // });
+
+        console.log(txHash);
+        // approve ERC20
+        // txHash = await writeContractAsync({
+        //     abi: [],
+        //     functionName: "approve",
+        //     address: process.env.FEE_TOKEN_ADDRESS as "0x${string}",
+        // });
+
+       // // start lending
+
+
+        await writeContractAsync({
+            abi: polftLendAbi,
+            functionName: "startLoan",
+            address: process.env.LEND_CONTRACT_ADDRESS as "0x${string}",
+            args: [{
+                principalPaymentAmount: 1000,
+                maximumPaymentAmount: 1500,
+                duration: 86400,
+                maxDuration: 100000,
+                interestRateOnBasisPoints: 5000,
+                interestIsProRated: false,
+                nftCollateralContract: [n721Mock.address, n721Mock.address],
+                nftCollateralId: [0, 1],
+                erc20CollateralContract: daiMock.address,
+                lender: addr1.address,
+                nonce: 2,
+                chainId: 31337,
+            }]
+        });
+
         dispatch(nftActions.addListedNFT([{
             name: "hehe",
             img: "https://image-cdn.lootrush.com/unsafe/311x0/smart/filters:format(webp)/https%3A%2F%2Faxiecdn.axieinfinity.com%2Faxies%2F11849301%2Faxie%2Faxie-full-transparent.png",
@@ -317,28 +364,6 @@ function ListNFT() {
             collection: availableCollections[selectedCollection].name,
             listingDate: formatDate(new Date())
         }]));
-
-        // approve NFT
-        let txHash = await writeContractAsync({
-            abi: [],
-            functionName: "setApprovalForAll",
-            address: availableCollections[selectedCollection].contract as "0x${string}",
-        });
-
-        // approve ERC20
-        txHash = await writeContractAsync({
-            abi: [],
-            functionName: "approve",
-            address: process.env.FEE_TOKEN_ADDRESS as "0x${string}",
-        });
-
-        // start lending
-        txHash = await writeContractAsync({
-            abi: [],
-            functionName: "startLoan",
-            address: process.env.LEND_CONTRACT_ADDRESS as "0x${string}",
-            args: [tokenId, feePerDay]
-        });
 
         setOpenModal(false);
     }

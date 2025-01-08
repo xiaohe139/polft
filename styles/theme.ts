@@ -1,7 +1,7 @@
 import { lightenDarkenColor } from "../utils/color";
 
 const THEME = {
-    PRIMARY_COLOR: '#7331FF',
+    PRIMARY_COLOR: '#FF2670',
     SECONDARY_COLOR: 'rgb(21,21,31)',
     LIGHT_SECONDARY_COLOR: '#2D2D3F',
     HOVER_LIGHT_SECONDARY_COLOR: '',
