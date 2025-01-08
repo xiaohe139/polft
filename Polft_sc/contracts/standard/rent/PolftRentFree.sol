@@ -22,7 +22,7 @@ contract PolftRentFree is
     WhitelistShared,
     ReentrancyGuard,
     Context,
-IPolftRentFree
+    IPolftRentFree
 {
     uint32 public MAX_PERCENTAGE;
     uint32 public SECONDS_PER_DAY;
