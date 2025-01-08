@@ -118,6 +118,7 @@ export default function MyListingsAssetsPage() {
 }
 
 function Statistic() {
+    const listedNFTs = useSelector(listedNFTSelector);
     return (
         <div className="flex gap-4 pb-8 overflow-auto mt-4">
             <div className="bg-light-secondary rounded-md p-4 flex flex-col justify-around h-32 select-none relative min-w-[180px] w-1/4">
@@ -157,8 +158,8 @@ function Statistic() {
                         Total rentals
                     </p>
                 </div>
-                <p className="text-2xl font-bold">0 rentals</p>
-                <p className="text-sm text-gray-400">0 this week</p>
+                <p className="text-2xl font-bold">{listedNFTs.length} rentals</p>
+                <p className="text-sm text-gray-400">{listedNFTs.length} this week</p>
             </div>
             <div className="bg-light-secondary rounded-md p-4 flex flex-col justify-around h-32 select-none relative min-w-[180px] w-1/4">
                 <div className="flex flex-row items-center justify-between">
@@ -179,7 +180,7 @@ function Statistic() {
                         Available to rent
                     </p>
                 </div>
-                <p className="text-2xl font-bold">0 NFTs</p>
+                <p className="text-2xl font-bold">{listedNFTs.length} NFTs</p>
                 <p className="text-sm text-gray-400" />
             </div>
             <div className="bg-light-secondary rounded-md p-4 flex flex-col justify-around h-32 select-none relative min-w-[180px] w-1/4">

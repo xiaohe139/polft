@@ -107,7 +107,7 @@ export default function Home() {
                         <div className="flex flex-row justify-between mb-4 items-start">
                             <div>
                                 <h3 className="text-xl md:text-2xl font-bold">All games</h3>
-                                <span className="text-muted text-sm md:text-md">688 games</span>
+                                <span className="text-muted text-sm md:text-md">300+ games</span>
                             </div>
                             <div className="flex justify-end">
                                 <div className="relative" data-headlessui-state="">
