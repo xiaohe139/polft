@@ -1,3 +1,3 @@
-import polftLendAbiJson from "@/Polft_sc/artifacts/contracts/standard/lend/PolftLend.sol/PolftLend.json";
+import polftRentAbiJson from "@/Polft_sc/artifacts/contracts/standard/rent/PolftRent.sol/PolftRent.json";
 
-export const polftLendAbi = polftLendAbiJson.abi;
+export const polftRentAbi = polftRentAbiJson.abi;

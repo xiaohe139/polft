@@ -1,12 +1,23 @@
 'use client';
-import NFTStatusText from "@/components/common/nft/NFTStatusText";
 import SearchBar from "@/components/common/SearchBar/SearchBar";
-import { listedNFTSelector } from "@/redux/nftSelector";
+import {listedNFTSelector} from "@/redux/nftSelector";
 import Image from "next/image";
-import { useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {NFTStatus} from "@/interfaces/nft";
+import NFTStatusText from "@/components/common/nft/NFTStatusText";
+import {Button} from "antd";
+import {useWriteContract} from "wagmi";
+import {polftRentAbi} from "@/utils/abi";
+import {nftActions} from "@/redux/nft/nftSlice";
 
 export default function MyListingsAssetsPage() {
     const listedNFTs = useSelector(listedNFTSelector);
+    const dispatch = useDispatch();
+
+    const {
+        data: txHash,
+        writeContractAsync
+    } = useWriteContract();
 
     return (
         <div>
@@ -104,7 +115,12 @@ export default function MyListingsAssetsPage() {
                                             <span className="text-[rgb(61,255,185)]">+${nft.totalFees.toFixed(4)}</span>
                                         </td>
                                         <td>
-                                            <NFTStatusText status={nft.status} />
+                                            {
+                                                nft.status === NFTStatus.AVAILABLE ?
+                                                    <NFTStatusText status={nft.status} />
+                                                 :
+                                                 <Button type={"primary"} className={"font-bold"} onClick={handleClaim}>Claim</Button>
+                                            }
                                         </td>
                                     </tr>
                                 ))
@@ -115,6 +131,28 @@ export default function MyListingsAssetsPage() {
             </div>
         </div>
     )
+
+    async function handleClaim() {
+        console.log(listedNFTs[listedNFTs.length-1].tokenId)
+        await writeContractAsync(
+            {
+                abi: polftRentAbi,
+                functionName: 'claimCollateral',
+                address: '0x1b54ff158684402D9a8E15C11b3076ADDAF695Fd',
+                args: [
+                    ['0xFA0bF8c359e83191b017Bb8f8383BBF915F6Ad39'],
+                    [listedNFTs[listedNFTs.length-1].tokenId],
+                    [listedNFTs[listedNFTs.length-1].tokenId - 2]
+                ]
+            }
+        )
+        dispatch(nftActions.updateListedNFT({
+            id: 0,
+            data: {
+                totalFees: 0.3
+            }
+        }))
+    }
 }
 
 function Statistic() {
@@ -141,7 +179,7 @@ function Statistic() {
                         Total income
                     </p>
                 </div>
-                <p className="text-2xl font-bold">$0</p>
+                <p className="text-2xl font-bold">${(listedNFTs.length < 1 ? 0 : listedNFTs[0].totalFees).toFixed(4)}</p>
             </div>
             <div className="bg-light-secondary rounded-md p-4 flex flex-col justify-around h-32 select-none relative min-w-[180px] w-1/4">
                 <div className="flex flex-row items-center justify-between">

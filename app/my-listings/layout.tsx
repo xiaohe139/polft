@@ -6,7 +6,7 @@ import SearchBar from "@/components/common/SearchBar/SearchBar";
 import { CollectionInfo } from "@/interfaces/collection";
 import { NFTStatus } from "@/interfaces/nft";
 import { nftActions } from "@/redux/nft/nftSlice";
-import { polftLendAbi } from "@/utils/abi";
+import  {polftRentAbi} from "@/utils/abi";
 import { formatDate } from "@/utils/formatter";
 import { Button, Col, Input, Modal, Row, Select, Typography } from "antd";
 import { isNaN } from "lodash";
@@ -16,8 +16,9 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import useSWR from "swr";
 import { useDebouncedCallback } from "use-debounce";
-import { erc721Abi } from "viem";
+import { erc721Abi, erc20Abi } from "viem";
 import { useAccount, useWriteContract } from "wagmi";
+import {MAX_INTEGER_BIGINT} from "@ethereumjs/util";
 
 const { Text, Title } = Typography;
 
@@ -247,7 +248,9 @@ function ListNFT() {
                             <div className="flex flex-col gap-2">
                                 <Title level={4} className="!mb-0">Token ID: </Title>
                                 <Input placeholder="E.g: 18" className="border-transparent h-10" onChange={(e) => validateTokenId(Number(e.target.value))} />
-                                {/* <NFTImage tokenId={"0"} contractAddress={"0xFA0bF8c359e83191b017Bb8f8383BBF915F6Ad39"} rpcUrl={"https://moonbase-alpha.drpc.org"} /> */}
+                                {selectedCollection >= 0 && tokenId !== 0 &&
+                                    <NFTImage tokenId={tokenId} contractAddress={availableCollections[selectedCollection].contract} rpcUrl={"https://moonbase-alpha.drpc.org"} />
+                                }
                             </div>
                             <div className="flex flex-col gap-2">
                                 <Title level={4} className="!mb-0">Fee per day (in USD): </Title>
@@ -297,47 +300,43 @@ function ListNFT() {
 
     async function handleListing() {
 
-        // approve NFT
-        // let txHash = await writeContractAsync({
-        //     abi: ERC721Abi,
-        //     functionName: "approve",
-        //     address: availableCollections[selectedCollection].contract as "0x${string}",
-        //     args: [process.env.LEND_CONTRACT_ADDRESS, tokenId]
-        // });
-
-        console.log(txHash);
+        // // approve NFT
+        let txHash = await writeContractAsync({
+            abi: erc721Abi,
+            functionName: "setApprovalForAll",
+            address: '0xFA0bF8c359e83191b017Bb8f8383BBF915F6Ad39',
+            args: ['0x1b54ff158684402D9a8E15C11b3076ADDAF695Fd', true]
+        });
+        console.log("txHash", txHash);
         // approve ERC20
-        // txHash = await writeContractAsync({
-        //     abi: [],
-        //     functionName: "approve",
-        //     address: process.env.FEE_TOKEN_ADDRESS as "0x${string}",
-        // });
+        txHash = await writeContractAsync({
+            abi: erc20Abi,
+            address: '0x571C02E1F981EEd9b241be144949a8E85C2fa683',
+            args: ['0x1b54ff158684402D9a8E15C11b3076ADDAF695Fd', MAX_INTEGER_BIGINT],
+            functionName: "approve"
+        });
+        console.log(txHash);
 
        // // start lending
 
 
         await writeContractAsync({
-            abi: polftLendAbi,
-            functionName: "startLoan",
-            address: process.env.LEND_CONTRACT_ADDRESS as "0x${string}",
-            args: [{
-                principalPaymentAmount: 1000,
-                maximumPaymentAmount: 1500,
-                duration: 86400,
-                maxDuration: 100000,
-                interestRateOnBasisPoints: 5000,
-                interestIsProRated: false,
-                nftCollateralContract: [n721Mock.address, n721Mock.address],
-                nftCollateralId: [0, 1],
-                erc20CollateralContract: daiMock.address,
-                lender: addr1.address,
-                nonce: 2,
-                chainId: 31337,
-            }]
+            abi: polftRentAbi,
+            functionName: "lend",
+            address: '0x1b54ff158684402D9a8E15C11b3076ADDAF695Fd',
+            args: [
+                ['0xFA0bF8c359e83191b017Bb8f8383BBF915F6Ad39'],
+                [tokenId],
+                [1],
+                [35],
+                [5000000000000000000],
+                [500],
+                ['0x571C02E1F981EEd9b241be144949a8E85C2fa683']
+            ]
         });
 
         dispatch(nftActions.addListedNFT([{
-            name: "hehe",
+            name: "Axie",
             img: "https://image-cdn.lootrush.com/unsafe/311x0/smart/filters:format(webp)/https%3A%2F%2Faxiecdn.axieinfinity.com%2Faxies%2F11849301%2Faxie%2Faxie-full-transparent.png",
             tokenId,
             feePerDay,
@@ -348,5 +347,15 @@ function ListNFT() {
         }]));
 
         setOpenModal(false);
+
+        setTimeout(() => {
+            dispatch(nftActions.updateListedNFT({
+                id: 0,
+                data: {
+                    status: NFTStatus.RENTED,
+                    // totalFees: 1
+                }
+            }))
+        }, 30000)
     }
 }

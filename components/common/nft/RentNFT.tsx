@@ -3,6 +3,11 @@ import Image from "next/image";
 import { Button, Input, Modal, Typography } from "antd";
 import { ModalProps } from "antd/lib/modal";
 import { useState } from "react";
+import {useDispatch} from "react-redux";
+import {useAccount, useWriteContract} from "wagmi";
+import {erc20Abi} from "viem";
+import {MAX_INTEGER_BIGINT} from "@ethereumjs/util";
+import {polftRentAbi} from "@/utils/abi";
 const { Text } = Typography;
 
 export default function RentNFT(props: {
@@ -19,16 +24,29 @@ export default function RentNFT(props: {
     } = props;
     const gasFee = 0.0068;
 
+    const dispatch = useDispatch();
 
+    const walletAccount = useAccount();
+    const {
+        data: txHash,
+        writeContractAsync
+    } = useWriteContract();
+
+
+    const [openModal, setOpenModal] = useState(false);
     const [rentalDays, setRentalDays] = useState(1);
+
 
     const handleChangeRentalDays = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value: inputValue } = e.target;
         setRentalDays(Number(inputValue));
     };
 
+
+
     return (
         <Modal
+            open={openModal}
             width={1000}
             destroyOnClose
             footer={[]}
@@ -61,7 +79,8 @@ export default function RentNFT(props: {
                     <div className="md:grid grid-cols-[10fr_5fr]">
                         <div className="flex flex-col p-6 bg-light-secondary justify-start min-w-full">
                             <h4 className="break-words max-w-sm font-bold text-2xl">{name}</h4>
-                            <Text className="text-thin text-base">Token ID: <Text className="text-muted">{tokenId}</Text></Text>
+                            <Text className="text-thin text-base">Token ID: <Text
+                                className="text-muted">{tokenId}</Text></Text>
                             <Text className="text-[#44C174]">Delivery in less than 1min</Text>
                             <div translate="no" className="flex flex-col gap-2 mt-5">
                                 <div
@@ -80,7 +99,9 @@ export default function RentNFT(props: {
                             </div>
                             <div className="flex items-center mt-5 text-lg">
                                 Rent within
-                                <Input onChange={handleChangeRentalDays} className="w-[100px] mx-2 border-2 border-primary bg-secondary" max={1000} placeholder="amount" defaultValue={1} />
+                                <Input onChange={handleChangeRentalDays}
+                                       className="w-[100px] mx-2 border-2 border-primary bg-secondary" max={1000}
+                                       placeholder="amount" defaultValue={1}/>
                                 days
                             </div>
                             <div className="w-full border-t-2 mt-5 p-5 border-gray-600">
@@ -97,7 +118,7 @@ export default function RentNFT(props: {
                                     <h3 className="text-xl font-body">Total</h3>
                                     <h3 className="text-xl font-body text-right">${parseFloat((gasFee + feePerDay * rentalDays).toFixed(6))} USD</h3>
                                 </div>
-                                <Button className="w-full mt-5 py-5" type="primary">
+                                <Button className="w-full mt-5 py-5" type="primary" onClick={handleRent}>
                                     <Text strong className="text-xl">Rent</Text>
                                 </Button>
                             </div>
@@ -265,4 +286,28 @@ export default function RentNFT(props: {
         </Modal>
 
     )
+
+    async function handleRent() {
+        let txHash = await writeContractAsync({
+            abi: erc20Abi,
+            address: '0x571C02E1F981EEd9b241be144949a8E85C2fa683',
+            args: ['0x1b54ff158684402D9a8E15C11b3076ADDAF695Fd', MAX_INTEGER_BIGINT],
+            functionName: "approve"
+        });
+
+        console.log(txHash);
+        await writeContractAsync({
+            abi: polftRentAbi,
+            functionName: "rent",
+            address: '0x1b54ff158684402D9a8E15C11b3076ADDAF695Fd',
+            args: [
+                ['0xFA0bF8c359e83191b017Bb8f8383BBF915F6Ad39'],
+                [tokenId],
+                [tokenId - 2],
+                [Math.floor(rentalDays * 86400)]
+            ]
+        });
+        console.log("Rent ok");
+        setOpenModal(false);
+    }
 }

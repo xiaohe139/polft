@@ -1,6 +1,7 @@
 import { NFTStatus, NFTInfo } from "@/interfaces/nft";
 import { createSlice } from "@reduxjs/toolkit";
 import { addListedNFT } from "./actions/addListedNFT";
+import {updateListedNFT} from "@/redux/nft/actions/updateListedNFT";
 
 export type ListedNFTState = (Pick<NFTInfo, "name" | "img" | "tokenId" | "feePerDay"> & {
     totalFees: number;
@@ -21,6 +22,7 @@ export const {reducer: nftReducer, actions: nftActions} = createSlice({
     name: 'semester',
     initialState,
     reducers: {
-        addListedNFT
+        addListedNFT,
+        updateListedNFT,
     },
 })
