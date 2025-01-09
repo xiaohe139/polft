@@ -102,7 +102,7 @@ export default function GamePage({
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-axies"
                                         >
-                                            Astar
+                                            Moonbase Alpha
                                         </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
@@ -179,7 +179,7 @@ export default function GamePage({
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-runes"
                                         >
-                                            Astar
+                                            Moonbase Alpha
                                         </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
@@ -256,7 +256,7 @@ export default function GamePage({
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-lands"
                                         >
-                                            Astar
+                                            Moonbase Alpha
                                         </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
@@ -333,7 +333,7 @@ export default function GamePage({
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-charms"
                                         >
-                                            Astar
+                                            Moonbase Alpha
                                         </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
@@ -410,7 +410,7 @@ export default function GamePage({
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-items"
                                         >
-                                            Astar
+                                            Moonbase Alpha
                                         </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">
@@ -487,7 +487,7 @@ export default function GamePage({
                                             className="text-inherit hover:text-inherit hover:no-underline flex-1 py-4 px-2 flex"
                                             href="/collections/axie-infinity-accessories"
                                         >
-                                            Astar
+                                            Moonbase Alpha
                                         </Link>
                                     </td>
                                     <td className="text-sm animate-fade-in">

@@ -34,7 +34,7 @@ const availableBlockchains: (Pick<ChainInfo, 'name' | 'img'>)[] = [{
     name: 'Moonbeam',
     img: 'https://cryptologos.cc/logos/moonbeam-glmr-logo.png',
 }, {
-    name: 'Astar',
+    name: 'Moonbase Alpha',
     img: 'https://astar.subscan.io/_next/image?url=%2Fchains%2Fastar%2Flogo-mini.png&w=256&q=75',
 }, {
     name: 'Acala',

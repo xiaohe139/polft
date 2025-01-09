@@ -10,7 +10,7 @@ export class CollectionAPI {
                     img: "https://image-cdn.lootrush.com/unsafe/311x0/smart/filters:format(webp)/https%3A%2F%2Faxiecdn.axieinfinity.com%2Faxies%2F11849301%2Faxie%2Faxie-full-transparent.png",
                     author: "0x8fb4c08d902c4ba250c3bfd4055a66a2f7764e4d",
                     contractAddress: "0x6F687272eb22A8CCe8fc73c88B3Fb01C77C0E5Ff",
-                    tokenId: 7,
+                    tokenId: 12,
                     feePerDay: 100
                 },
                 {
@@ -50,7 +50,7 @@ export class CollectionAPI {
                     img: "https://image-cdn.lootrush.com/unsafe/311x0/smart/filters:format(webp)/https%3A%2F%2Fcdn.axieinfinity.com%2Fmarketplace-website%2Faxie-eggs%2Freptile-dusk.png",
                     author: "0x8fb4c08d902c4ba250c3bfd4055a66a2f7764e4d",
                     contractAddress: "0x6F687272eb22A8CCe8fc73c88B3Fb01C77C0E5Ff",
-                    tokenId: 12,
+                    tokenId: 13,
                     feePerDay: 100
                 },
             ],
