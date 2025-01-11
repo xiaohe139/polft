@@ -214,7 +214,7 @@ contract PolftLend is
         feeBps = _feeBps;
     }
 
-    function setCurrencyAddress(address _currencyAddress) public validateAdmin {
+            function setCurrencyAddress(address _currencyAddress) public validateAdmin {
         currencyAddress = _currencyAddress;
     }
 

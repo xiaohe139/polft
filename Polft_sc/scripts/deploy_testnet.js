@@ -121,10 +121,6 @@ async function main() {
 
     await PolftLendProxy.setCurrencyAddress(currencyProxy.address);
 
-
-
-
-
     data.marketplace = {
         address: marketplaceProxy.address,
         hash: marketplaceProxy.deployTransaction.hash,
@@ -181,49 +177,49 @@ main()
         console.error(error);
         process.exit(1);
     });
-//
 // Data {
 //     marketplace: {
-//         address: '0xc9086Ba53c16Ba646a4c5bc94aD23B4f47b52784',
-//             hash: '0xc141887cc89c49ecf6abf27679ee3e1b6a3934213d0c69deebe1124af8b32277',
+//         address: '0xeB3165a3AC56Cc863f2Abd3F1f63a0F0b40aDc27',
+//             hash: '0xbeb8bba56a3e7df053fe5a64cce82b95b2dc0a82ceecc4c81c50713df03ae206',
 //             arguments: []
 //     },
 //     offer: {
-//         address: '0xfE007B96Ba8253AC0046650144915eFBa8DA188A',
-//             hash: '0xdbd45b720e96afaf8380708799feaad914441e72672f4708ade0540578ccf5f9',
+//         address: '0x5B2B52B0Ac1B0806DDc14Dc89260E04C78f6231a',
+//             hash: '0x7098e46d4e4696e187d9838ba94ae8c415af2ea011989eea3fa851f030701bcf',
 //             arguments: []
 //     },
 //     Polft721: {
-//         address: '0xC5D0d654fD359723647ee83D53abaCe9133b9b5b',
-//             hash: '0x4356caa147ef24f132e72980aa5aa75a07c6a0ad1ed7d7087e11613b64bfd8ae',
+//         address: '0xF2ebC456e797b55967F91205137cf88D483df778',
+//             hash: '0x3a54bf25123b563cd8e534bfe728dc0bc786457f15b2669dd3001fb285c96789',
 //             arguments: []
 //     },
 //     Polft1155: {
-//         address: '0xb8C1c784aa548538ff65774EfcD5574dB3836e73',
-//             hash: '0x5cac1409f3930a856aa64f6b301c316787e1ad4b39c3bb196f5f24f5c12ceab8',
+//         address: '0x56879083fEde8C724Bbc13F32E8E94D3fb6377db',
+//             hash: '0x24f5319a7153d9c815008e86221f4271931a039331ed1b07f176c777beb0c5a1',
 //             arguments: []
 //     },
 //     currency: {
-//         address: '0xAE13B6797A08634592EB289E20D5BD0b56B4AaD7',
-//             hash: '0x9ec4be4099b8718e5b26ac20e074f99b373cf3cb9ab9caa7e94d42f96613e883',
+//         address: '0x6841120c66f14Be706A332E6A6Eb04187dc5C49c',
+//             hash: '0x467d59ab32c32479c79a18d93e6a50bcfc701c71747403c054c010cb6abbbc3c',
 //             arguments: []
 //     },
 //     whitelist: {
-//         address: '0x9F84bb19fBd1BD8B7222eb6B890927C50872a871',
-//             hash: '0x4573b9fd77560dd959f2a5dd8bf55b9e430f963db098bc30bf7024fbc1183664',
+//         address: '0x3e73D9Db5f201359dD96Cb8950B011e8FEee1910',
+//             hash: '0x974e80243a52556777eda415329d6f13f596f66afec754a1e0d9b6a42482b369',
 //             arguments: []
 //     },
 //     token: {
-//         address: '0x571C02E1F981EEd9b241be144949a8E85C2fa683',
-//             hash: '0xdc39e5ef2b7ee5076bf17c53374628db5c191cadb9c9f5f2e63ec5e68c211f65'
+//         address: '0x6efbF6a02ED04A7D6Db18bFFb926419cf4eb470A',
+//             hash: '0xbf7fa685fed8c339da63cc6e740d4eaf78ce6fd8d0b270324ab03f904cb02248'
 //     },
 //     PolftLend: {
-//         address: '0x7Fb55f3c57afea7BCC500722B23B8aE3Ad39E96c',
-//             hash: '0xc0db0dccdc01b5145faf3acdf65a3999b4c1fff72590faeb1895ed65d7416db9'
+//         address: '0xfc9EA86Ab1D4299D87f5543276349d5f4AEAA552',
+//             hash: '0xd74cfbbd169d474133abef865336d6e269fa97aa5675824154c2f9dd46dc3376'
 //     },
 //     PoftRent: {
-//         address: '0x1b54ff158684402D9a8E15C11b3076ADDAF695Fd',
-//             hash: '0x320eee54d4e302fb1b1790033378fb365a6817d3317885614970aef559bf9f56'
+//         address: '0x77E1099D545534A93b333C054D37F9785176D765',
+//             hash: '0x91a223ac6640877045716220d2014eda3d48995c05b3f7a8fbd56ebb0d70a676'
 //     }
 // }
 // --------------------------------------------------------------------------
+

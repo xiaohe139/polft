@@ -319,7 +319,7 @@ function ListNFT() {
         let txHash = await writeContractAsync({
             abi: erc721Abi,
             functionName: "setApprovalForAll",
-            address: '0xFA0bF8c359e83191b017Bb8f8383BBF915F6Ad39',
+            address: '0x547704fD446186B60234fC44969c04bD708Ed61A',
             args: ['0x1b54ff158684402D9a8E15C11b3076ADDAF695Fd', true]
         });
         console.log("txHash", txHash);
