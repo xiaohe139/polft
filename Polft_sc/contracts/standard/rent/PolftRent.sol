@@ -74,8 +74,8 @@ contract PolftRent is
         MAX_PERCENTAGE = 10000;
         SECONDS_PER_DAY = 86400;
         rentFee = 500; // 5%
-        LIMIT_SECONDS_TO_CLAIM = 86400;
-        LIMIT_SECONDS_TO_RETURN = 3600; // Can late till 6h after
+        LIMIT_SECONDS_TO_CLAIM = 60;
+        LIMIT_SECONDS_TO_RETURN = 60;
         _setWhitelistAddress(_whitelistAddress);
     }
 

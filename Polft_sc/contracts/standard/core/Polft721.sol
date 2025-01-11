@@ -23,7 +23,7 @@ import "../../shared/WhitelistUpgradeable.sol";
 contract Polft721 is
     Initializable,
     IOpenseaStandard,
-IPolft721,
+    IPolft721,
     ERC721Upgradeable,
     ERC721EnumerableUpgradeable,
     ERC721URIStorageUpgradeable,

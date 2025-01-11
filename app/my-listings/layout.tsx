@@ -146,6 +146,7 @@ function ListNFT() {
     const [selectedCollection, setSelectedCollection] = useState(-1);
     const [tokenId, setTokenId] = useState(0);
     const [feePerDay, setFeePerDay] = useState(0);
+    const [price, setPrice] = useState(0);
 
     const validateTokenId = useDebouncedCallback((tokenId: number) => {
         if (tokenId < 0 || isNaN(tokenId)) {
@@ -243,29 +244,43 @@ function ListNFT() {
                         <div className="flex flex-col gap-8 mx-5">
                             <div className="flex flex-col gap-2">
                                 <Title level={4} className="!mb-0">Target chain: </Title>
-                                <Select defaultValue={'hehe'} disabled options={[{ value: 'hehe', label: <Text className="text-muted">{walletAccount.chain?.name}</Text> }]} />
+                                <Select defaultValue={'hehe'} disabled options={[{
+                                    value: 'hehe',
+                                    label: <Text className="text-muted">{walletAccount.chain?.name}</Text>
+                                }]}/>
                             </div>
                             <div className="flex flex-col gap-2">
                                 <Title level={4} className="!mb-0">Token ID: </Title>
-                                <Input placeholder="E.g: 18" className="border-transparent h-10" onChange={(e) => validateTokenId(Number(e.target.value))} />
+                                <Input placeholder="E.g: 18" className="border-transparent h-10"
+                                       onChange={(e) => validateTokenId(Number(e.target.value))}/>
                                 {selectedCollection >= 0 && tokenId !== 0 &&
-                                    <NFTImage tokenId={tokenId} contractAddress={availableCollections[selectedCollection].contract} rpcUrl={"https://moonbase-alpha.drpc.org"} />
+                                    <NFTImage tokenId={tokenId}
+                                              contractAddress={availableCollections[selectedCollection].contract}
+                                              rpcUrl={"https://moonbase-alpha.drpc.org"}/>
                                 }
                             </div>
                             <div className="flex flex-col gap-2">
+                                <Title level={4} className="!mb-0">Price NFT (in USD): </Title>
+                                <Input placeholder="E.g: 18" className="border-transparent h-10" suffix="USD"
+                                       onChange={(e) => setPrice(Number(e.target.value))}/>
+                            </div>
+                            <div className="flex flex-col gap-2">
                                 <Title level={4} className="!mb-0">Fee per day (in USD): </Title>
-                                <Input placeholder="E.g: 18" className="border-transparent h-10" suffix="USD" onChange={(e) => setFeePerDay(Number(e.target.value))} />
+                                <Input placeholder="E.g: 18" className="border-transparent h-10" suffix="USD"
+                                       onChange={(e) => setFeePerDay(Number(e.target.value))}/>
                             </div>
                             <div className="flex flex-col gap-2">
                                 <Title level={4} className="!mb-0">Payout address: </Title>
-                                <Input className="!border-transparent h-10" disabled defaultValue={walletAccount.address} />
+                                <Input className="!border-transparent h-10" disabled
+                                       defaultValue={walletAccount.address}/>
                             </div>
                             <div className="h-[1px] w-full bg-gray-600"></div>
                             <div className="flex flex-col gap-2">
                                 <Title level={4}>Summary</Title>
                                 <div className="flex">
                                     <Text strong className="flex-1">Collection:</Text>
-                                    <Text className="text-muted">{selectedCollection < 0 ? '' : availableCollections[selectedCollection].name}</Text>
+                                    <Text
+                                        className="text-muted">{selectedCollection < 0 ? '' : availableCollections[selectedCollection].name}</Text>
                                 </div>
                                 <div className="flex">
                                     <Text strong className="flex-1">Target chain:</Text>
@@ -330,7 +345,7 @@ function ListNFT() {
                 [1],
                 [35],
                 [5000000000000000000],
-                [500],
+                [price],
                 ['0x571C02E1F981EEd9b241be144949a8E85C2fa683']
             ]
         });
